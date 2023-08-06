@@ -188,7 +188,7 @@ Game.Play.prototype = {
     if (this.game.time.now > this.scoreTime) {
       this.scoreTime = game.time.now + 1000;
       score += 1;
-      this.labelScore.content = 'score: ' + score;
+      this.labelScore.text = 'score: ' + score;
     }
 
     this.physics.arcade.overlap(this.player, this.enemies1, this.playerHit, null, this);
