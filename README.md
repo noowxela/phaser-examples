@@ -4,7 +4,7 @@
 A collection of games made by phaser, [DEMO](https://noowxela.github.io/phaser-examples)
 
 
-[![Phaser Examples - Screenshot](https://raw.githubusercontent.com/jojoee/phaser-examples/gh-pages/games/demo.png "Phaser Examples - Screenshot")](https://noowxela.github.io/phaser-examples)
+[![Phaser Examples - Screenshot](https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages/games/demo.png "Phaser Examples - Screenshot")](https://noowxela.github.io/phaser-examples)
 
 ## Help me add new games :)
 feel free to add more phaser3 game example
