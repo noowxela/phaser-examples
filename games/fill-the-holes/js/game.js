@@ -226,24 +226,26 @@ Game.Menu.prototype = {
       align: 'center'
     });
     explanation_label.anchor.setTo(0.5, 0.5);
+
     this.arrows = this.game.add.sprite(w / 2, h / 2, 'arrows');
     this.arrows.anchor.setTo(0.5, 0.5);
-    game.add.tween(this.arrows.scale).to({
-        x: 1.2,
-        y: 1.2
-      }, 1000, Phaser.Easing.Linear.None)
-      .to({
-        x: 1,
-        y: 1
-      }, 1000, Phaser.Easing.Linear.None).loop().start();
-    box = this.game.add.sprite(w / 2, h / 2, 'box');
-    box.inputEnabled = true;
-    box.anchor.setTo(0.5, 0.5);
-    box.input.useHandCursor = true;
-    box.events.onInputUp.add(this.box_clicked, this);
-    box.events.onOutOfBounds.add(function() {
+    game.add.tween(this.arrows.scale)
+      .to({ x: 1.2, y: 1.2 }, 1000, Phaser.Easing.Linear.None)
+      .to({ x: 1, y: 1}, 1000, Phaser.Easing.Linear.None).loop().start();
+
+    this.box = this.game.add.sprite(w / 2, h / 2, 'box');
+    this.game.physics.arcade.enable(this.box);
+    this.box.inputEnabled = true;
+    this.box.anchor.setTo(0.5, 0.5);
+    this.box.input.useHandCursor = true;
+    this.box.events.onInputUp.add(this.box_clicked, this);
+  },
+  
+  update: function() {
+    if(!this.box.inWorld){
       game.state.start('Play');
-    });
+    }
+
   },
   box_clicked: function(box, pointer) {
     game.add.tween(this.arrows).to({
@@ -254,15 +256,16 @@ Game.Menu.prototype = {
       y: box.y
     };
     var speed = 300;
-    if (in_triangle(game.input, box.topLeft, box.topRight, center))
+    var rect = box.getBounds()
+    if (in_triangle(game.input, rect.topLeft, rect.topRight, center))
       box.body.velocity.y = -speed;
-    else if (in_triangle(game.input, box.bottomLeft, box.bottomRight, center))
+    else if (in_triangle(game.input, rect.bottomLeft, rect.bottomRight, center))
       box.body.velocity.y = speed;
-    else if (in_triangle(game.input, box.bottomLeft, box.topLeft, center))
+    else if (in_triangle(game.input, rect.bottomLeft, rect.topLeft, center))
       box.body.velocity.x = -speed;
     else
       box.body.velocity.x = speed;
-    game.stage.canvas.style.cursor = "default";
+    // game.stage.canvas.style.cursor = "default";
   },
 };
 var tile_size = 50;
@@ -273,21 +276,29 @@ var offset = {
 Game.Play = function(game) {};
 Game.Play.prototype = {
   create: function() {
+
     this.holes = game.add.group();
+    this.holes.enableBody = true;
     this.holes.createMultiple(10, 'hole');
+
     this.boxes = game.add.group();
+    this.boxes.enableBody = true;
     this.boxes.createMultiple(10, 'box');
-    this.boxes.setAll('outOfBoundsKill', true);
+
     this.boxes.setAll('inputEnabled', true);
+
     this.walls = game.add.group();
+    this.walls.enableBody = true;
     this.walls.createMultiple(10, 'wall');
     this.walls.setAll('body.immovable', true);
+
     this.reset_button = this.game.add.sprite(w - 80, 0, 'wall');
     this.reset_button.alpha = 0;
     this.reset_button.scale.setTo(1.5, 0.8);
     this.reset_button.inputEnabled = true;
     this.reset_button.input.useHandCursor = true;
     this.reset_button.events.onInputDown.add(this.reset_level, this);
+
     game.add.text(10, 10, 'Fill the Holes', {
       font: '20px Arial',
       fill: '#fff'
@@ -297,6 +308,7 @@ Game.Play.prototype = {
       fill: '#fff'
     });
     this.level_label.anchor.setTo(0.5, 0);
+
     restart_label = game.add.text(w - 70, 10, 'restart', {
       font: '20px Arial',
       fill: '#fff'
@@ -306,18 +318,21 @@ Game.Play.prototype = {
       fill: '#fff'
     });
     this.explanation_label.anchor.setTo(0.5, 0);
+
     this.hit_s = game.add.audio('hit');
     this.next_s = game.add.audio('next');
     game.add.audio('music').play('', 0, 0.15, true);
+
     this.holes_to_fill = 0;
     this.level = 0;
     this.timer_end_level = 0;
+
     this.draw_level();
   },
   update: function() {
-    if (game.physics.collide(this.boxes, this.walls))
+    if (this.game.physics.arcade.collide(this.boxes, this.walls))
       this.hit_s.play('', 0, 0.3, false);
-    game.physics.overlap(this.boxes, this.holes, this.collide_box_hole, null, this);
+    this.game.physics.arcade.overlap(this.boxes, this.holes, this.collide_box_hole, null, this);
     if (this.holes_to_fill == 0) {
       this.holes_to_fill = 42;
       this.timer_end_level = game.time.now + 1200;
@@ -329,10 +344,11 @@ Game.Play.prototype = {
     }
     this.hand = false;
     this.boxes.forEachAlive(this.do_hover, this);
-    if (this.hand || Phaser.Rectangle.contains(this.reset_button.body, game.input.x, game.input.y))
-      game.stage.canvas.style.cursor = "pointer";
-    else
-      game.stage.canvas.style.cursor = "default";
+    // TODO need settle the cursor pointer issue
+    // if (this.hand || Phaser.Rectangle.contains(this.reset_button.body, this.game.input.x, this.game.input.y))
+    //   this.game.stage.canvas.style.cursor = "pointer";
+    // else
+    //   this.game.stage.canvas.style.cursor = "default";
   },
   do_hover: function(box) {
     if (Phaser.Rectangle.contains(box.body, game.input.x, game.input.y))
@@ -340,19 +356,19 @@ Game.Play.prototype = {
   },
   draw_level: function() {
     this.next_s.play('', 0, 0.1, false);
+
     var level = map[this.level];
     for (var i = 0; i < level.length; i++)
       for (var j = 0; j < level[i].length; j++)
         if (level[i][j] != 0)
           this.add_tile(j * tile_size + offset.x, i * tile_size + offset.y, level[i][j]);
+
     this.explanation_label.x = w / 2;
     this.explanation_label.y = h - 35;
-    this.explanation_label.content = text[this.level];
+    this.explanation_label.text = text[this.level];
     this.explanation_label.scale.setTo(0.1, 0.1);
-    this.game.add.tween(this.explanation_label.scale).to({
-      x: 1,
-      y: 1
-    }, 1000, Phaser.Easing.Bounce.Out).start();
+
+    this.game.add.tween(this.explanation_label.scale).to({ x: 1, y: 1}, 1000, Phaser.Easing.Bounce.Out).start();
   },
   add_tile: function(x, y, type) {
     var tile;
@@ -401,15 +417,18 @@ Game.Play.prototype = {
       y: box.y
     };
     var speed = 300;
-    if (in_triangle(game.input, box.topLeft, box.topRight, center))
+
+    var rect = box.getBounds()
+    
+    if (in_triangle(game.input, rect.topLeft, rect.topRight, center))
       box.body.velocity.y = -speed;
-    else if (in_triangle(game.input, box.bottomLeft, box.bottomRight, center))
+    else if (in_triangle(game.input, rect.bottomLeft, rect.bottomRight, center))
       box.body.velocity.y = speed;
-    else if (in_triangle(game.input, box.bottomLeft, box.topLeft, center))
+    else if (in_triangle(game.input, rect.bottomLeft, rect.topLeft, center))
       box.body.velocity.x = -speed;
     else
       box.body.velocity.x = speed;
-    game.stage.canvas.style.cursor = "default";
+    // game.stage.canvas.style.cursor = "default";
   },
   reset_level: function() {
     user_clicks += 1;
@@ -423,7 +442,7 @@ Game.Play.prototype = {
       this.game.state.start('End');
       return;
     }
-    this.level_label.content = (this.level + 1) + '/' + map.length;
+    this.level_label.text = (this.level + 1) + '/' + map.length;
     this.draw_level();
   },
   clear_level: function() {

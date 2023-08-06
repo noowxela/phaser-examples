@@ -54,7 +54,7 @@ var games = [
     title: 'Box Jump',
     description: '',
     phaserVersion: '2.4.4',
-    isPlayable: false,
+    isPlayable: true,
     screenshots: [
       'box-jump.jpg'
     ],
@@ -71,7 +71,7 @@ var games = [
     title: 'Man vs Penguins',
     description: '',
     phaserVersion: '2.4.4',
-    isPlayable: false,
+    isPlayable: true,
     screenshots: [
       'man-vs-penguins.jpg'
     ],
