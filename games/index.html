@@ -185,7 +185,7 @@
     screenshotsHostName += '/screenshots/';
     var gameHostname = isLocal()
       ? 'http://localhost:3000'
-      : 'https://noowxela.github.io/phaser-examples/';
+      : 'https://noowxela.github.io/phaser-examples';
     gameHostname += '/games/';
     var gameHostRefname = isLocal()
       ? 'http://localhost:3000'
@@ -203,8 +203,8 @@
         // Demos
         var selfHostDemo = gameHostname + games[i].name;
         var refHostDemo = gameHostRefname + games[i].name;
-        games[i].demos.unshift(selfHostDemo);
         games[i].demos.unshift(refHostDemo);
+        games[i].demos.unshift(selfHostDemo);
       }
 
       // start
