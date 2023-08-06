@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phaser Examples</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: monospace;
+  background-color: #ffffff;
+}
+
+.wrapper {
+  
+}
+
+#game-list {
+
+}
+
+.game-wrap {
+  word-wrap: break-word;
+  margin-bottom: 30px;
+}
+
+.game-wrap.notplayable .game:after {
+  content: 'Bug';
+  z-index: 3;
+  position: absolute;
+  right: 0;
+  background-color: red;
+  color: #fff;
+  padding: 6px;
+}
+
+.game {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 438px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, .8);
+}
+
+.link-wrap {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.screenshot {
+  padding: 0;
+  height: 438px;
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.meta {
+  color: #fff;
+  padding-top: 12px;
+}
+
+.id {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 12px;
+  background-color: black;
+  color: #fff;
+}
+
+.links {
+  display: table;
+  word-break: break-all;
+}
+
+.links li {
+  list-style: none;
+}
+
+.links li a {
+  display: block;
+  color: #337ab7;
+}
+
+.links li a:hover {
+  color: #337ab7;
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+<div class="container wrapper">
+  <div class="row">
+    <h2 class="logo">Phaser Examples, <span id="ngames">0</span> games</h2>
+    <hr>
+    <div id="game-list"></div>
+  </div>
+</div>
+<script id="game-template" type="text/x-handlebars-template">
+  {{#each games}}
+    <div id="game-{{name}}" class="col-md-12 game-wrap {{#unless isPlayable}}notplayable{{/unless}}">
+      <div class="game">
+        <div class="screenshot col-md-6"
+          {{#if screenshots.[0]}}
+            style="background-image: url('{{screenshots.[0]}}');"
+          {{/if}}
+        >
+          &nbsp;
+          <span class="id">{{id}}</span>
+          {{#if demos.[0]}}
+            <a class="link-wrap"
+              target="_blank"
+              href="{{demos.[0]}}">
+              &nbsp;
+            </a>
+          {{/if}}
+        </div><!-- .screenshot -->
+
+        <div class="meta col-md-6">
+          <div class="title">{{title}}</div>
+          <div class="desc">{{description}}</div>
+          <div class="version">Phaser version: {{phaserVersion}}</div>
+          <ul class="links">
+            {{#each demos}}
+              <li class="demo"><a href="{{this}}" target="_blank">{{this}}</a></li>
+            {{/each}}
+
+            {{#each inspirations}}
+              <li class="inspiration"><a href="{{this}}" target="_blank">{{this}}</a></li>
+            {{/each}}
+
+            {{#each references}}
+              <li class="reference"><a href="{{this}}" target="_blank">{{this}}</a></li>
+            {{/each}}
+
+            {{#each tags}}
+              <li class="tag"><a href="{{this}}" target="_blank">{{this}}</a></li>
+            {{/each}}
+          </ul>
+        </div><!-- .meta -->
+      </div>
+    </div>
+  {{/each}}
+  </div>
+</script>
+<script src="games.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+<script>
+
+// ================================================================ Function
+
+function isLocal() {
+  return (window.location.host === 'localhost:3000');
+}
+
+// ================================================================ Handlebars
+
+Handlebars.registerHelper('list', function(items, options) {
+  var out = '<ul>';
+  for (var i = 0, l = items.length; i < l; i++) {
+    out = out + '<li>' + options.fn(items[i]) + '</li>';
+  }
+
+  return out + '</ul>';
+});
+
+// ================================================================ App
+
+// Setup `games` variable for demo purpose
+var gameTemplateEle = document.getElementById('game-template');
+var gameListEle = document.getElementById('game-list');
+var ngamesEle = document.getElementById('ngames');
+
+var screenshotsHostName = isLocal()
+  ? 'http://localhost:3000'
+  : 'https://raw.githubusercontent.com/jojoee/phaser-examples/gh-pages';
+screenshotsHostName += '/screenshots/';
+var gameHostname = isLocal()
+  ? 'http://localhost:3000'
+  : 'http://jojoee.github.io/phaser-examples';
+gameHostname += '/games/';
+
+function init() {
+  for (var i = 0; i < games.length; i++) {
+    // Screenshots
+    var nScreenshots = games[i].screenshots.length;
+    for (var j = 0; j < nScreenshots; j++) {
+      games[i].screenshots[j] = screenshotsHostName + games[i].screenshots[j];
+    }
+
+    // Demos
+    var selfHostDemo = gameHostname + games[i].name;
+    games[i].demos.unshift(selfHostDemo);
+  }
+
+  // start
+  var source = gameTemplateEle.innerHTML;
+  var template = Handlebars.compile(source);
+  var context = {games: games};
+  var html = template(context);
+
+  ngamesEle.innerHTML = games.length
+  gameListEle.innerHTML = html;
+}
+
+init()
+</script>
+</body>
+</html>

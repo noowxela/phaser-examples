@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" prefix="og: http://ogp.me/ns#">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<title>Phaser Examples</title>
+</head>
+<body>
+<script>
+/**
+ * @see http://stackoverflow.com/questions/6680825/return-string-without-trailing-slash
+ *
+ * @param {string} str
+ * @return {string}
+ */
+function removeTrailingSlash(str) {
+  return str.replace(/\/$/, '');
+}
+
+/**
+ * @return {string}
+ */
+function getRedirectUrl() {
+  var url = window.location.href;
+  var indexFileName = 'index.html';
+  if (url.indexOf(indexFileName) >= 0) {
+    url = url.replace(indexFileName, '');
+  }
+
+  url = removeTrailingSlash(url);
+
+  return url + '/games/index.html';
+}
+
+// redirect
+var redirectUrl = getRedirectUrl();
+window.location.href = redirectUrl;
+</script>  
+</body>
+</html>
