@@ -53,6 +53,7 @@ Game.Menu.prototype = {
   create: function() {
     this.tap1_s = game.add.audio('tap1');
     this.combo_s = game.add.audio('combo');
+
     game.add.text(w / 2, 50, "connected", {
         font: "30px Arial",
         fill: "#2c3e50"
@@ -63,26 +64,29 @@ Game.Menu.prototype = {
       fill: "#2c3e50"
     });
     label_start.anchor.setTo(0.5, 0.5);
+
     this.dot1 = this.game.add.sprite(w / 2 - 25, h / 2, 'dot');
+    this.game.physics.arcade.enable(this.dot1);
     this.dot1.anchor.setTo(0.5, 0.5);
     this.dot1.frame = 0;
     this.dot1.inputEnabled = true;
     this.dot1.input.useHandCursor = true;
+
     this.dot2 = this.game.add.sprite(w / 2 + 25, h / 2, 'dot');
+    this.game.physics.arcade.enable(this.dot2);
     this.dot2.anchor.setTo(0.5, 0.5);
     this.dot2.frame = 0;
     this.dot2.inputEnabled = true;
     this.dot2.input.useHandCursor = true;
+
     this.sound_toggle = this.game.add.button(w - 70, 40, 'sound', this.toggle_sound, this);
-    game.add.tween(label_start).to({
-      angle: 1
-    }, 300).to({
-      angle: -1
-    }, 300).loop().start();
+
+    game.add.tween(label_start).to({ angle: 1 }, 300).to({ angle: -1 }, 300).loop().start();
   },
   update: function() {
     var bool1 = Phaser.Rectangle.contains(this.dot1.body, game.input.activePointer.x, game.input.activePointer.y);
     var bool2 = Phaser.Rectangle.contains(this.dot2.body, game.input.activePointer.x, game.input.activePointer.y);
+
     if (game.input.activePointer.isDown) {
       if (this.dot1.frame == 0 && bool1) {
         this.dot1.frame += 1;
@@ -121,9 +125,11 @@ Game.Play = function(game) {};
 Game.Play.prototype = {
   create: function() {
     this.dots = game.add.group();
+    this.dots.enableBody = true;
     this.dots.createMultiple(70, 'dot');
     this.dots.setAll('inputEnabled', true);
     this.dots.setAll('input.useHandCursor', true);
+
     this.label_score = game.add.text(40, 20, "0", {
       font: "20px Arial",
       fill: "#2c3e50"
@@ -132,14 +138,19 @@ Game.Play.prototype = {
       font: "20px Arial",
       fill: "#2c3e50"
     });
+
     this.progress = this.game.add.sprite(w / 2, h - 50, 'progress');
     this.progress.anchor.setTo(0, 0.5);
+
     bar = this.game.add.sprite(w / 2, h - 50, 'bar');
     bar.anchor.setTo(0.5, 0.5);
+
     this.progress.width = 0;
     this.progress.x -= bar.width / 2;
+
     question = this.game.add.button(w / 2, 30, 'question', this.add_tuto, this);
     question.anchor.setTo(0.5, 0.5);
+
     this.tap1_s = game.add.audio('tap1');
     this.tap2_s = game.add.audio('tap2');
     this.tap3_s = game.add.audio('tap3');
@@ -305,9 +316,9 @@ Game.Play.prototype = {
   update_score_and_labels: function() {
     if (sound) this.combo_s.play('', 0, 0.4, false);
     this.moves += 1;
-    this.label_moves.content = this.moves + '/20';
+    this.label_moves.text = this.moves + '/20';
     score += this.count * this.get_multiplier_bar();
-    this.label_score.content = score;
+    this.label_score.text = score;
     this.clear_bar();
     if (this.moves == 20) this.game.state.start('End');
   },
