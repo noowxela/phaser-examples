@@ -194,7 +194,7 @@ Game.Play.prototype = {
     game.physics.arcade.overlap(this.player, this.cubes, this.playerHit, null, this);
   },
   playerJump: function() {
-    this.player.body.velocity.y = -250;
+    this.player.body.velocity.y = -300;
 
     this.jumpSound.play('', 0, 0.1);
 
