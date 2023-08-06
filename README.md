@@ -1,10 +1,10 @@
 🎮 This repo is extend on repo ( https://github.com/jojoee/phaser-examples ) by jojoee.
 
 # INTRODUCTION
-A collection of games made by phaser, [DEMO](http://jojoee.github.io/phaser-examples)
+A collection of games made by phaser, [DEMO](https://noowxela.github.io/phaser-examples)
 
 
-[![Phaser Examples - Screenshot](https://raw.githubusercontent.com/jojoee/phaser-examples/gh-pages/games/demo.jpg "Phaser Examples - Screenshot")](http://jojoee.github.io/phaser-examples/games/)
+[![Phaser Examples - Screenshot](https://raw.githubusercontent.com/jojoee/phaser-examples/gh-pages/games/demo.jpg "Phaser Examples - Screenshot")](https://noowxela.github.io/phaser-examples)
 
 ## Help me add new games :)
 feel free to add more phaser3 game example

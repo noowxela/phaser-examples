@@ -17,6 +17,9 @@
     "url": "https://github.com/noowxela/phaser-examples/issues"
   },
   "scripts": {
-    "deploy": "gh-pages -d src"
+    "deploy": "gh-pages -d games"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
