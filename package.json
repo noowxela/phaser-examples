@@ -1,0 +1,25 @@
+{
+  "name": "phaser-examples",
+  "homepage": "https://noowxela.github.io/phaser-examples",
+  "version": "0.0.1",
+  "description": "Phaser Examples",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noowxela/phaser-examples.git"
+  },
+  "keywords": [
+    "phaser",
+    "examples"
+  ],
+  "author": "Alex Woon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noowxela/phaser-examples/issues"
+  },
+  "scripts": {
+    "deploy": "gh-pages -d ../phaser-examples"
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
+  }
+}
