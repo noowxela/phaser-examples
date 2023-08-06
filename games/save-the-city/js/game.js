@@ -63,10 +63,14 @@ Game.Play = function(game) {};
 Game.Play.prototype = {
   create: function() {
     this.key = this.game.input.keyboard;
+
     this.city = this.game.add.sprite(w / 2, h - 55, 'city');
     this.city.anchor.setTo(0.5, 1);
+
     this.bomb = this.game.add.sprite(w / 2, -40, 'bomb');
+    this.game.physics.arcade.enable(this.bomb);
     this.bomb.anchor.setTo(0.5, 0.5);
+
     this.i = 0;
     this.level = 0;
     this.dead = false;
@@ -109,7 +113,7 @@ Game.Play.prototype = {
       if (e.y + 20 < 0) {
         e.alpha = 0;
         e.alive = false;
-      } else if (e.alpha > 0 && e.y + 20 < this.bomb.bottomLeft.y) {
+      } else if (e.alpha > 0 && e.y + 20 < this.bomb.getBounds().bottomLeft.y) {
         this.hit_s.play('', 0, 0.2, false);
         e.alpha = 0;
         e.alive = false;
