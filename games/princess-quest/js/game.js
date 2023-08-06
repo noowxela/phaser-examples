@@ -64,6 +64,8 @@ Game.Load.prototype = {
 Game.Menu = function(game) {};
 Game.Menu.prototype = {
   create: function() {
+    this.game.world.setBounds(0, -100, w, h + 100);
+
     game.add.text(Math.floor(w / 2) + 0.5, 50, 'Princess Quest', {
         font: '40px Arial',
         fill: '#fff'
@@ -89,28 +91,32 @@ Game.Menu.prototype = {
       .to({
         angle: -1
       }, 300, Phaser.Easing.Linear.None).loop().start();
+    
+    // TODO the pricncess brounce gravity abit different compare with demo
     this.princess = this.game.add.sprite(w / 2, h / 2 - 50, 'princess');
-    this.princess.body.gravity.y = 12;
+    this.game.physics.arcade.enable(this.princess);
+    this.princess.body.gravity.y = 100;
+    this.princess.body.bounce.y = 1;
     this.princess.anchor.setTo(0.5, 1);
     this.princess.frame = 1;
+
     this.platform = this.game.add.sprite(w / 2, h / 2 + 150, 'platform');
+    this.game.physics.arcade.enable(this.platform);
     this.platform.anchor.setTo(0.5, 0.5);
     this.platform.body.immovable = true;
+
     this.sound_toggle = this.game.add.button(w - 70, 42, 'mute', this.toggle_sound, this);
     this.cursor = this.game.input.keyboard.createCursorKeys();
   },
   update: function() {
-    game.physics.collide(this.princess, this.platform);
-    if (this.princess.body.touching.down && this.princess.scale.y == 1) {
-      var tween = game.add.tween(this.princess.scale).to({
-        y: 0.7,
-        x: 1.3
-      }, 150, Phaser.Easing.Linear.None).start();
-      tween.onComplete.add(function() {
-        this.princess.scale.setTo(1, 1);
-        this.princess.body.velocity.y = -500;
-      }, this);
-    }
+    this.game.physics.arcade.collide(this.princess, this.platform);
+    // if (this.princess.body.touching.down && this.princess.scale.y == 1) {
+    //   var tween = game.add.tween(this.princess.scale).to({ y: 0.7, x: 1.3 }, 150, Phaser.Easing.Linear.None).start();
+    //   tween.onComplete.add(function() {
+    //     this.princess.scale.setTo(1, 1);
+    //     this.princess.body.velocity.y = -500;
+    //   }, this);
+    // }
     if (this.cursor.up.isDown || game.input.activePointer.isDown)
       game.state.start('Play');
   },
@@ -130,11 +136,15 @@ Game.Menu.prototype = {
 Game.Play = function(game) {};
 Game.Play.prototype = {
   create: function() {
-    this.game.world.setBounds(0, -100000, w, h + 100000);
+    this.game.world.setBounds(0, -100, w, h + 100);
+
     this.cursor = this.game.input.keyboard.createCursorKeys();
+
     this.clouds = game.add.group();
+    this.clouds.enableBody = true;
     this.clouds.createMultiple(6, 'cloud');
     this.clouds.setAll('outOfBoundsKill', true);
+
     if (score > best_score)
       best_score = score;
     score = 0;
@@ -144,15 +154,21 @@ Game.Play.prototype = {
       this.score_line_label = game.add.text(w-100, x-25, 'best score', { font: '20px Arial', fill: '#fff' });
     }*/
     this.platforms = game.add.group();
+    this.platforms.enableBody = true;
     this.platforms.createMultiple(15, 'platform');
     this.platforms.setAll('body.immovable', true);
     this.platforms.setAll('body.allowCollision.down', false);
     this.platforms.setAll('body.allowCollision.right', false);
     this.platforms.setAll('body.allowCollision.left', false);
+
     this.hearts = game.add.group();
+    this.hearts.enableBody = true;
     this.hearts.createMultiple(3, 'heart');
+
     this.spikes = game.add.group();
+    this.spikes.enableBody = true;
     this.spikes.createMultiple(5, 'spike');
+
     this.emitter = game.add.emitter(0, 0, 100);
     this.emitter.x = -100;
     this.emitter.on = false;
@@ -160,13 +176,19 @@ Game.Play.prototype = {
     this.emitter.gravity = 10;
     this.emitter.start(false, 1000, 15, 0);
     this.emitter.width = 50;
+
     this.princess = this.game.add.sprite(w / 2 + 100, h - 200, 'princess');
-    this.princess.body.gravity.y = 12;
+    this.game.physics.arcade.enable(this.princess);
+    this.princess.body.gravity.y = 100;
+    this.princess.body.bounce.y = 1;
     this.princess.anchor.setTo(0.5, 1);
+
     this.ground = this.game.add.sprite(0, h - 56, 'ground');
+    this.game.physics.arcade.enable(this.ground);
     this.ground.scale.setTo(15, 1);
     this.ground.body.immovable = true;
     this.ground.outOfBoundsKill = true;
+
     this.score_label = game.add.text(10, 10, '0', {
       font: '20px Arial',
       fill: '#fff'
@@ -187,22 +209,22 @@ Game.Play.prototype = {
   },
   update: function() {
     if (this.princess.alive) {
-      if (this.ground.alive) game.physics.collide(this.princess, this.ground);
-      game.physics.collide(this.princess, this.platforms);
-      game.physics.overlap(this.princess, this.hearts, this.take_heart, null, this);
-      game.physics.overlap(this.princess, this.spikes, this.take_spike, null, this);
+      if (this.ground.alive) this.game.physics.arcade.collide(this.princess, this.ground);
+      this.game.physics.arcade.collide(this.princess, this.platforms);
+      this.game.physics.arcade.overlap(this.princess, this.hearts, this.take_heart, null, this);
+      this.game.physics.arcade.overlap(this.princess, this.spikes, this.take_spike, null, this);
     }
-    if (this.princess.body.y < this.game.camera.y + h / 2) {
-      this.move_screen_up();
-      this.generate_level();
-    }
-    if (this.count_update == 20) {
-      this.count_update = 0;
-      this.platforms.forEachAlive(this.update_platform, this);
-      this.hearts.forEachAlive(this.update_heart, this);
-      this.spikes.forEachAlive(this.update_spike, this);
-    } else
-      this.count_update += 1;
+    // if (this.princess.body.y < this.game.camera.y + h / 2) {
+    //   this.move_screen_up();
+    //   this.generate_level();
+    // }
+    // if (this.count_update == 20) {
+    //   this.count_update = 0;
+    //   this.platforms.forEachAlive(this.update_platform, this);
+    //   this.hearts.forEachAlive(this.update_heart, this);
+    //   this.spikes.forEachAlive(this.update_spike, this);
+    // } else
+    //   this.count_update += 1;
     this.princess_move();
   },
   init_level: function() {
@@ -266,28 +288,29 @@ Game.Play.prototype = {
       game.state.start('Dead');
       return;
     }
-    if (this.princess.x < 20)
-      this.princess.x = 20;
-    else if (this.princess.x > w - 20)
-      this.princess.x = w - 20;
-    if (this.princess.body.touching.down && this.princess.scale.y == 1) {
-      if (sound) this.jump_s.play('', 0, 0.15, false);
-      if (this.princess.scale.x == 1)
-        var scale_x = 1.3;
-      else
-        var scale_x = -1.3;
-      var tween = game.add.tween(this.princess.scale).to({
-        y: 0.7,
-        x: scale_x
-      }, 150, Phaser.Easing.Linear.None).start();
-      tween.onComplete.add(function() {
-        if (this.princess.scale.x == 1)
-          this.princess.scale.setTo(1, 1);
-        else
-          this.princess.scale.setTo(-1, 1);
-        this.princess.body.velocity.y = -500;
-      }, this);
-    }
+    // TODO need fix the bounce effect
+    // if (this.princess.x < 20)
+    //   this.princess.x = 20;
+    // else if (this.princess.x > w - 20)
+    //   this.princess.x = w - 20;
+    // if (this.princess.body.touching.down && this.princess.scale.y == 1) {
+    //   if (sound) this.jump_s.play('', 0, 0.15, false);
+    //   if (this.princess.scale.x == 1)
+    //     var scale_x = 1.3;
+    //   else
+    //     var scale_x = -1.3;
+    //   var tween = game.add.tween(this.princess.scale).to({
+    //     y: 0.7,
+    //     x: scale_x
+    //   }, 150, Phaser.Easing.Linear.None).start();
+    //   tween.onComplete.add(function() {
+    //     if (this.princess.scale.x == 1)
+    //       this.princess.scale.setTo(1, 1);
+    //     else
+    //       this.princess.scale.setTo(-1, 1);
+    //     this.princess.body.velocity.y = -500;
+    //   }, this);
+    // }
     this.princess.body.velocity.x = 0;
     var touch_right = game.input.activePointer.isDown && game.input.activePointer.x > w / 2;
     var touch_left = game.input.activePointer.isDown && game.input.activePointer.x < w / 2;
