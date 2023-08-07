@@ -3,7 +3,7 @@ window.onload = function() {
   // onPreload to be executed when the game preloads
   // onCreate to be executed once the game is firstly created
   // onUpdate to be called every time the game us updated
-  var game = new Phaser.Game(640, 480, Phaser.CANVAS, "", {
+  var game = new Phaser.Game(640, 480, Phaser.CANVAS, "gameContainer", {
     preload: onPreload,
     create: onCreate,
     update: onUpdate

@@ -100,17 +100,26 @@ Game.Play = function(game) {};
 Game.Play.prototype = {
   create: function() {
     this.cursor = this.game.input.keyboard.createCursorKeys();
+
     this.player = this.game.add.sprite(w / 2 - 50, h / 2, 'player');
+    this.game.physics.arcade.enable(this.player);
     this.player.body.collideWorldBounds = true;
     game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
     this.player.anchor.setTo(0.5, 0.5);
+
     this.coins_taken = 0;
     this.level = 1;
     dead = 0;
     this.playerJumpCount = 0;
+
     this.coins = game.add.group();
+    this.game.physics.arcade.enable(this.coins);
+
     this.enemies = game.add.group();
+    this.game.physics.arcade.enable(this.enemies);
+
     this.labels = game.add.group();
+
     this.coin_s = game.add.sound('coin');
     this.coin_s.volume = 0.2;
     this.dead_s = game.add.sound('dead');
@@ -124,10 +133,11 @@ Game.Play.prototype = {
     this.next_level();
   },
   update: function() {
-    this.game.physics.collide(this.layer, this.player);
-    this.game.physics.overlap(this.player, this.coins, this.take_coin, null, this);
-    this.game.physics.overlap(this.enemies, this.layer, this.enemy_collide, null, this);
-    this.game.physics.overlap(this.enemies, this.player, this.player_dead, null, this);
+    this.game.physics.arcade.collide(this.layer, this.player);
+    // TODO need check take_coin logic
+    this.game.physics.arcade.overlap(this.player, this.coins, this.take_coin, null, this);
+    this.game.physics.arcade.overlap(this.enemies, this.layer, this.enemy_collide, null, this);
+    this.game.physics.arcade.overlap(this.enemies, this.player, this.player_dead, null, this);
     this.player_movements();
     if (this.player.y < -30)
       this.player_dead();
@@ -149,6 +159,7 @@ Game.Play.prototype = {
     e.direction = e.direction * -1;
   },
   take_coin: function(player, coin) {
+    console.log("take_coin ")
     if (!coin.alive)
       return;
     coin.alive = false;
@@ -212,12 +223,16 @@ Game.Play.prototype = {
     this.map.addTilesetImage('tiles_name', 'tiles');
     this.map.setCollisionBetween(0, 1);
     this.map.setTileIndexCallback(3, this.player_dead, this);
+
     this.layer = this.map.createLayer('layer');
+
     this.map.createFromObjects('objects', 2, 'coin', 0, true, false, this.coins);
     this.map.createFromObjects('objects', 4, 'enemy', 0, true, false, this.enemies);
     this.map.createFromObjects('objects', 5, 'enemy', 0, true, false, this.enemies);
     this.map.createFromObjects('objects', 7, '', 0, true, false, this.labels);
+
     this.layer.resizeWorld();
+
     this.player.reset(w / 2 - 50, h / 2);
     if (this.level == 5)
       this.player.y -= 100;

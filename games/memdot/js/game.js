@@ -12,7 +12,7 @@ var circlesInGame = 4;
 
 // creation of the game
 window.onload = function () {
-  game = new Phaser.Game(320, 480);
+  game = new Phaser.Game(320, 480, Phaser.AUTO, 'gameContainer');
   game.state.add("PlayGame", playGame);
   game.state.start("PlayGame");
 }
