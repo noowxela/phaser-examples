@@ -1,5 +1,5 @@
 window.onload = function() {
-  var game = new Phaser.Game(640, 480);
+  var game = new Phaser.Game(640, 480, Phaser.AUTO, 'game');
   var tileSize = 80;
   var gameTiles = 10;
   var tilesArray = [];

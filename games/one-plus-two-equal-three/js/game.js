@@ -1,5 +1,5 @@
 window.onload = function() {
-  var game = new Phaser.Game(500, 500, Phaser.CANVAS, "", {
+  var game = new Phaser.Game(500, 500, Phaser.CANVAS, "game", {
     preload: onPreload,
     create: onCreate
   });
