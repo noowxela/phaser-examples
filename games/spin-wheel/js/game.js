@@ -14,7 +14,7 @@ var prize;
 var prizeText;
 window.onload = function() {
   // creation of a 458x488 game
-  game = new Phaser.Game(458, 488, Phaser.AUTO, "");
+  game = new Phaser.Game(458, 488, Phaser.AUTO, "gameContainer");
   // adding "PlayGame" state
   game.state.add("PlayGame", playGame);
   // launching "PlayGame" state

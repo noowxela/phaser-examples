@@ -16,7 +16,7 @@ var speedMult;
 // function to be executed once the window finishes to load
 window.onload = function() {
   // creation of a 320x480 game
-  game = new Phaser.Game(320, 480, Phaser.AUTO, "");
+  game = new Phaser.Game(320, 480, Phaser.AUTO, "gameContainer");
   // creation of a state called PlayGame, which is the only state
   game.state.add("PlayGame", playGame);
   // starting playGame state

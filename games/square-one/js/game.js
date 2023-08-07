@@ -15,7 +15,7 @@ var squareColors = [0x888888, 0xaaaaaa];
 
 // creation of the game, portrait mode 320x480
 window.onload = function () {
-  game = new Phaser.Game(320, 480);
+  game = new Phaser.Game(320, 480, Phaser.AUTO, 'gameContainer');
   game.state.add("PlayGame", playGame);
   game.state.start("PlayGame");
 }
