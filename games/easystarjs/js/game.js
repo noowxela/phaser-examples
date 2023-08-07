@@ -5,7 +5,7 @@ var mazeHeight = 61;
 var tileSize = 10;
 var mazeGraphics;
 window.onload = function() {
-  game = new Phaser.Game(810, 610, Phaser.CANVAS, "");
+  game = new Phaser.Game(810, 610, Phaser.CANVAS, "game");
   game.state.add("PlayGame", playGame);
   game.state.start("PlayGame");
 }

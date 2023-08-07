@@ -7,7 +7,7 @@ var forceReducer = 0.005;
 // graphic object where to draw planet gravity area
 var gravityGraphics;
 window.onload = function() {
-  game = new Phaser.Game(800, 600, Phaser.AUTO, "");
+  game = new Phaser.Game(800, 600, Phaser.AUTO, "game");
   game.state.add("PlayGame", playGame);
   game.state.start("PlayGame");
 }

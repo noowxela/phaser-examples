@@ -66,6 +66,7 @@ Bird.prototype.update = function() {
 
 Bird.prototype.flap = function() {
   if(!!this.alive) {
+    // TODO need reduce the sound volume
     this.flapSound.play();
     //cause our bird to "jump" upward
     this.body.velocity.y = -400;

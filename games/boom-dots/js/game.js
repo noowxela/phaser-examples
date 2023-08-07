@@ -1,5 +1,5 @@
 window.onload = function() {
-  var game = new Phaser.Game(320, 480, Phaser.CANVAS);
+  var game = new Phaser.Game(320, 480, Phaser.CANVAS,"game");
   var player;
   var enemy;
   var playerTween;

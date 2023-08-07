@@ -6,7 +6,7 @@ var sightRadius = 10;
 var wallRatio = 3;
 var maze = [];
 window.onload = function() {
-  game = new Phaser.Game(640, 640, Phaser.AUTO, "");
+  game = new Phaser.Game(640, 640, Phaser.AUTO, "game");
   game.state.add("PlayGame", playGame);
   game.state.start("PlayGame");
 }
