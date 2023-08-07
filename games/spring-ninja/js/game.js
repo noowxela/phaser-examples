@@ -1,5 +1,5 @@
 window.onload = function() {
-  var game = new Phaser.Game(640, 480, Phaser.CANVAS);
+  var game = new Phaser.Game(640, 480, Phaser.CANVAS, "game");
   var ninja;
   var ninjaGravity = 800;
   var ninjaJumpPower;

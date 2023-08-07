@@ -5,7 +5,7 @@
   var highScore = 0;
   var SantaGame = {
     init: function() {
-      this.game = new Phaser.Game(width, height, Phaser.CANVAS, '');
+      this.game = new Phaser.Game(width, height, Phaser.CANVAS, 'game');
       this.game.state.add("load", this.load);
       this.game.state.add("play", this.play);
       this.game.state.add("title", this.title);
@@ -15,6 +15,7 @@
     },
     load: {
       preload: function() {
+        // TODO nedd reduce the sound volume
         this.game.load.audio('drivin-home', 'assets/drivin-home-low.mp3');
         this.game.load.audio('ho-ho-ho', 'assets/ho-ho-ho.mp3');
         this.game.load.audio('hop', 'assets/jump-sound.mp3');
