@@ -17,7 +17,6 @@ feel free to add more phaser3 game example
 - [borismus/osmus](https://github.com/borismus/osmus)
 
 ## Other games
-- [Phaser Jump Game](http://codepen.io/jackrugile/pen/fqHtn)
 - [Snake](https://github.com/beije/phaser-game-snake/)
 - [Phaser & P2 Physics: Working with Polygon Colliders](http://codepen.io/codevinsky/pen/JAoHa)
 - [Drag and Drop in Phaser](http://codepen.io/jdnichollsc/pen/WbZgwM)
@@ -130,6 +129,7 @@ feel free to add more phaser3 game example
 - [making-your-first-phaser-game](http://phaser.io/tutorials/making-your-first-phaser-game))
 - [Official Phaser Tutorials](http://phaser.io/learn/official-tutorials)
 - [lessmilk](http://www.lessmilk.com/phaser-tutorial/)
+- [jackrugile](https://codepen.io/jackrugile)
 
 ## Distribution Channel
 - Amazon Web App, [Amazon Web App Tester](http://www.amazon.com/gp/product/B00DZ3I1W8), [Implementing the Amazon In-App Purchasing API in your HTML5 Web Apps](https://developer.amazon.com/appsandservices/community/post/Tx3LQBBJRUYE58P/Implementing-the-Amazon-In-App-Purchasing-API-in-your-HTML5-Web-Apps.html)
