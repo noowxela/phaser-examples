@@ -158,7 +158,9 @@
     // ================================================================ Function
 
     function isLocal() {
-      return (window.location.host === 'localhost:3000');
+      if (window.location.host == "http://http://127.0.0.1:5500/" || 'localhost:3000')
+        return true
+      return false
     }
 
     // ================================================================ Handlebars
@@ -178,18 +180,17 @@
     var gameTemplateEle = document.getElementById('game-template');
     var gameListEle = document.getElementById('game-list');
     var ngamesEle = document.getElementById('ngames');
+    var currentHost = window.location.origin; // Get the current host URL
 
     var screenshotsHostName = isLocal()
-      ? 'http://localhost:3000'
+      ? currentHost + "/phaser-examples"
       : 'https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages';
     screenshotsHostName += '/screenshots/';
     var gameHostname = isLocal()
-      ? 'http://localhost:3000'
+      ? currentHost + "/phaser-examples"
       : 'https://noowxela.github.io/phaser-examples';
     gameHostname += '/games/';
-    var gameHostRefname = isLocal()
-      ? 'http://localhost:3000'
-      : 'http://jojoee.github.io/phaser-examples';
+    var gameHostRefname = 'http://jojoee.github.io/phaser-examples';
     gameHostRefname += '/games/';
 
     function init() {
