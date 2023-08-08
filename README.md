@@ -1,53 +1,47 @@
-🎮 This repo is extend on repo ( https://github.com/jojoee/phaser-examples ) by jojoee.
-
 # INTRODUCTION
-A collection of games made by phaser, [DEMO](https://noowxela.github.io/phaser-examples)
 
+🎮 This repo is extend on repo ( <https://github.com/jojoee/phaser-examples> ) by jojoee.
+
+A collection of games made by phaser, [DEMO](https://noowxela.github.io/phaser-examples)
 
 [![Phaser Examples - Screenshot](https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages/games/demo.png "Phaser Examples - Screenshot")](https://noowxela.github.io/phaser-examples)
 
-## Help me add new games :)
-feel free to add more phaser3 game example
+---
 
+$${ feel \space free \space \color{green}Add \space \color{lightblue}To \space \color{orange}More Games :)}$$
 
 
 ## Other games (multiplayer)
+
 - [Blocker - Multiplayer online game using Phaser + WebSocket (Socket.IO)](https://github.com/jojoee/blocker)
 - [fbaiodias/phaser-multiplayer-game](https://github.com/fbaiodias/phaser-multiplayer-game)
 - [borismus/osmus](https://github.com/borismus/osmus)
 
 ## Other games
-- [Phaser Jump Game](http://codepen.io/jackrugile/pen/fqHtn)
-- [Snake](https://github.com/beije/phaser-game-snake/)
+
+- [Snake](https://github.com/beije/phaser-game-snake/) 
 - [Phaser & P2 Physics: Working with Polygon Colliders](http://codepen.io/codevinsky/pen/JAoHa)
-- [Drag and Drop in Phaser](http://codepen.io/jdnichollsc/pen/WbZgwM)
-- [Lives like Zelda in Phaser](http://codepen.io/jdnichollsc/pen/NPJmRq)
+- [Drag and Drop in Phaser](http://codepen.io/jdnichollsc/pen/WbZgwM) - `bone`
 - [Phaser y TimelineLite](http://codepen.io/jdnichollsc/pen/ZYeWEr)
-- [Menu](http://codepen.io/john-cheesman/pen/Gpzzbr) - `babel`
-- [Jetpack Joyride](http://zenva-runner.herokuapp.com/)
-- [Health Bar of Life with crop](http://codepen.io/jdnichollsc/pen/oXXRMz)
-- [Lives like Zelda in Phaser](http://codepen.io/jdnichollsc/pen/NPJmRq)
-- [shmup](https://github.com/Chmood/shmup): A shooter game based on Phaser framework
-- [bomb-arena](https://github.com/ahung89/bomb-arena): An HTML5 multiplayer arena-style combat game
+- [Health Bar of Life with crop](http://codepen.io/jdnichollsc/pen/oXXRMz) - `healthBar`
+- [shmup](https://github.com/Chmood/shmup): A shooter game based on Phaser framework - `flightFight`
+- [bomb-arena](https://github.com/ahung89/bomb-arena): An HTML5 multiplayer arena-style combat game -  ```diff -need check```
 - [phaser-platform](https://github.com/felipepucinelli/phaser-platform): A platform game developed with phaser.io
-- [FlappyBirdClone_tuto](https://github.com/fguillen/FlappyBirdClone_tuto): Phaser game development tuto
 - [admob-demo-game-phaser](https://github.com/floatinghotpot/admob-demo-game-phaser): Demo game for Cordova AdMob plugin, using phaser game engine
 - [phaser-sidescroller](https://github.com/fariazz/phaser-sidescroller): Phaser sidescroller game
 - [Cyber-Orb](https://github.com/EnclaveGames/Cyber-Orb): demo game showcasing Phaser development with Device Orientation od Vibration APIs
 - [Phaser: Arcade Physics and Mass](http://codepen.io/codevinsky/pen/dJhan)
 - [Phaser: Attach Particle Emitter to a sprite](http://codepen.io/codevinsky/pen/aocsr)
-- [Scale, Rotate and Reflect Sprites with drag and drop](http://codepen.io/jdnichollsc/pen/QwXpqX)
-- [CanyonRunner](https://github.com/zackproser/CanyonRunner): A complete HTML5 game using the Phaser framework. Playable, buildable, and published as a tutorial for other game developers.
-- Fruit Ninja: [Part 1](https://gamedevacademy.org/how-to-make-a-fruit-ninja-game-in-phaser-part-1/), [Part 2](https://gamedevacademy.org/how-to-make-a-fruit-ninja-game-in-phaser-part-2/)
-- [How to make a Button in Phaser](http://codepen.io/andrewgrant/pen/WbPMJa)
-- Bomberman: [Part 1](https://gamedevacademy.org/how-to-make-a-bomberman-game-in-phaser-part-1/), [Part 2](https://gamedevacademy.org/how-to-make-a-bomberman-game-in-phaser-part-2/), [Part 3](https://gamedevacademy.org/how-to-make-a-bomberman-game-in-phaser-part-3/)
+- [Scale, Rotate and Reflect Sprites with drag and drop](http://codepen.io/jdnichollsc/pen/QwXpqX) - `can combine with bone`
+- [CanyonRunner](https://github.com/zackproser/CanyonRunner): A complete HTML5 game using the Phaser framework. Playable, buildable, and published as a tutorial for other game developers. - `nice to play but ui need fix`
+- 
+- Fruit Ninja: [Part 1](https://gamedevacademy.org/how-to-make-a-fruit-ninja-game-in-phaser-part-1/), [Part 2](https://gamedevacademy.org/how-to-make-a-fruit-ninja-game-in-phaser-part-2/), [Part 3](https://gamedevacademy.org/how-to-make-a-fruit-ninja-game-in-phaser-part-3/)
+- [How to make a Button in Phaser](http://codepen.io/andrewgrant/pen/WbPMJa) `useHandCursor quite nice but cant get the use case`
+- Bomberman: [Part 1](https://gamedevacademy.org/how-to-make-a-bomberman-game-in-phaser-part-1/), [Part 2](https://gamedevacademy.org/how-to-make-a-bomberman-game-in-phaser-part-2/), [Part 3](https://gamedevacademy.org/how-to-make-a-bomberman-game-in-phaser-part-3/) - `need to get a game demo`
 - [How to "lock" orientation in your HTML5 responsive game using Phaser](http://www.emanueleferonato.com/2015/04/23/how-to-lock-orientation-in-your-html5-responsive-game-using-phaser/)
-- [Health Bar of Life with crop](http://codepen.io/jdnichollsc/pen/oXXRMz)
-- Pong Game: [Part 1](http://www.zekechan.net/getting-started-html5-game-development-pong1/), [Part 2](http://www.zekechan.net/getting-started-html5-game-development-pong2/), [Part 3](http://www.zekechan.net/getting-started-html5-game-development-pong3/), [Part 4](http://www.zekechan.net/getting-started-html5-game-development-pong4/), [Part 5](http://www.zekechan.net/getting-started-html5-game-development-pong5/), [Part 6](http://www.zekechan.net/getting-started-html5-game-development-pong6/), [Part 7](http://www.zekechan.net/getting-started-html5-game-development-pong7/)
-- [phaser-pvz](https://github.com/gabehollombe/phaser-pvz): Some of the basics of a game involving plants and zombies, made with Phaser
-- [Phaser Jump Game](http://codepen.io/jackrugile/pen/fqHtn)
-- [Timberman](http://www.soluka.fr/blog/jeux/phaser-2-creer-timberman-en-html5-canvas/)
-- Fruit Ninja: [Part 3](https://gamedevacademy.org/how-to-make-a-fruit-ninja-game-in-phaser-part-3/)
+- Pong Game: [Part 1](http://www.zekechan.net/getting-started-html5-game-development-pong1/), [Part 2](http://www.zekechan.net/getting-started-html5-game-development-pong2/), [Part 3](http://www.zekechan.net/getting-started-html5-game-development-pong3/), [Part 4](http://www.zekechan.net/getting-started-html5-game-development-pong4/), [Part 5](http://www.zekechan.net/getting-started-html5-game-development-pong5/), [Part 6](http://www.zekechan.net/getting-started-html5-game-development-pong6/), [Part 7](http://www.zekechan.net/getting-started-html5-game-development-pong7/) - `website down need dig the demo`
+- [phaser-pvz](https://github.com/gabehollombe/phaser-pvz): Some of the basics of a game involving plants and zombies, made with Phaser `need to get a game demo`
+- [Timberman](http://www.soluka.fr/blog/jeux/phaser-2-creer-timberman-en-html5-canvas/) - `nide game can clone demo`
 - [Flappy Bird 1](https://github.com/codevinsky/flappy-bird-reborn)
 - [Flappy Bird 2](https://github.com/jmiziolek/phaserflappy)
 - [Flappy Bird 3](http://www.emanueleferonato.com/2015/03/10/html5-flappy-bird-prototype-using-phaser-states-extended-classes-and-arcade-physics/)
@@ -60,15 +54,17 @@ feel free to add more phaser3 game example
 - [Starting out with Phaser and the Isometric Plug-in](http://thoughts.amphibian.com/2015/07/starting-out-with-phaser-and-isometric.html)
 
 ## Phaser plugins (official)
+
 - [Phaser - Shop - Plugins](http://phaser.io/shop/plugins)
 - [Phaser - Shop - Virtual Joystick Plugin](http://phaser.io/shop/plugins/virtualjoystick)
 - [photonstorm/phaser-plugins](https://github.com/photonstorm/phaser-plugins)
 
 ## Phaser plugins
+
 - [codevinsky/phaser-juicy](https://github.com/codevinsky/phaser-juicy)
 - [MattMcFarland/phaser-menu-system](https://github.com/MattMcFarland/phaser-menu-system): Boilerplate menu system for phaser.io
 - [flogvit/phaser-swipe](https://github.com/flogvit/phaser-swipe): A swipe component for Phaser.io
-- [Ezelia/EZGUI](https://github.com/Ezelia/EZGUI): The missing GUI for Pixi.js and Phaser.io http://ezgui.ezelia.com
+- [Ezelia/EZGUI](https://github.com/Ezelia/EZGUI): The missing GUI for Pixi.js and Phaser.io <http://ezgui.ezelia.com>
 - [netgfx/PhaseSlider](https://github.com/netgfx/PhaseSlider)
 - [jcd-as/nadion](https://github.com/jcd-as/nadion)
 - [Cudabear/phaser-illuminated](https://github.com/Cudabear/phaser-illuminated): A Javascript library for interfacing Phaser.js and Illuminated.js for light effects in web games.
@@ -89,6 +85,7 @@ feel free to add more phaser3 game example
 - [netcell/nine-patch-phaser-plugin](https://github.com/netcell/nine-patch-phaser-plugin)
 
 ## Related Javascript plugin
+
 - [mourner/suncalc](https://github.com/mourner/suncalc), Moon & Sun calculation
 - Joystick: [yoannmoinet/nipplejs](https://github.com/yoannmoinet/nipplejs)
 - Joystick: [jeromeetienne/virtualjoystick.js](https://github.com/jeromeetienne/virtualjoystick.js)
@@ -98,6 +95,7 @@ feel free to add more phaser3 game example
 - Server framework: [NetEase/pomelo](https://github.com/NetEase/pomelo)
 
 ## TODO
+
 - [ ] Creating `.gif` instead of screenshot
 - [ ] Using `ESLint` to fix all js files
 - [ ] Refactor all games (make it same structure)
@@ -117,12 +115,13 @@ feel free to add more phaser3 game example
 - [ ] [Fade](http://www.emanueleferonato.com/2014/09/08/phaser-tutorial-creating-your-own-phaser-plugins/)
 - [ ] Add icon font (e.g. [Font Awesome](https://fortawesome.github.io/Font-Awesome/))
 - [ ] [Emanuele Feronato | italian geek and PROgrammerEmanuele Feronato](http://www.emanueleferonato.com/)
-- [ ] Community Tutorials (e.g. http://phaser.io/learn, http://phaser.io/learn?page=2, http://phaser.io/learn/community-tutorials, http://phaser.io/news/category/tutorial)
+- [ ] Community Tutorials (e.g. <http://phaser.io/learn>, <http://phaser.io/learn?page=2>, <http://phaser.io/learn/community-tutorials>, <http://phaser.io/news/category/tutorial>)
 - [ ] [Labs](http://phaser.io/labs)
 - [ ] [Examples](http://phaser.io/examples)
 - [ ] [ludumdare.com/compo/tag/phaser-js](http://ludumdare.com/compo/tag/phaser-js/)
 
 ## Reference & game collection
+
 - [photonstorm/phaser-ce](https://github.com/photonstorm/phaser-ce)
 - [Phaser 2.6.2 API Docs - Learn - Phaser](http://phaser.io/docs/2.6.2/index)
 - [gamedevacademy.org](https://gamedevacademy.org/category/tutorials/)
@@ -130,8 +129,10 @@ feel free to add more phaser3 game example
 - [making-your-first-phaser-game](http://phaser.io/tutorials/making-your-first-phaser-game))
 - [Official Phaser Tutorials](http://phaser.io/learn/official-tutorials)
 - [lessmilk](http://www.lessmilk.com/phaser-tutorial/)
+- [jackrugile](https://codepen.io/jackrugile)
 
 ## Distribution Channel
+
 - Amazon Web App, [Amazon Web App Tester](http://www.amazon.com/gp/product/B00DZ3I1W8), [Implementing the Amazon In-App Purchasing API in your HTML5 Web Apps](https://developer.amazon.com/appsandservices/community/post/Tx3LQBBJRUYE58P/Implementing-the-Amazon-In-App-Purchasing-API-in-your-HTML5-Web-Apps.html)
 - [itch.io](http://itch.io/)
 - [fgl.com](https://www.fgl.com/)
@@ -140,6 +141,7 @@ feel free to add more phaser3 game example
 - Chrome Web Store
 
 ## Game Inspiration
+
 - [10 Minute Barbarian](http://studiopuffer.appspot.com/)
 - [RETRO WINGS](https://play.google.com/store/apps/details?id=com.arkavis.retrowingsgame&hl=en)
 - [Fruit Ninja](https://play.google.com/store/apps/details?id=com.polargames3.br)

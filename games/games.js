@@ -271,6 +271,23 @@ var games = [
     demos: []
   },
   {
+    id: 121,
+    name: 'phaser-jump',
+    title: 'Phaser Jump',
+    description: 'A jump game',
+    phaserVersion: '2.1.1',
+    isPlayable: true,
+    screenshots: [
+      'phaser-jump.png'
+    ],
+    references: [
+      'https://codepen.io/jackrugile/pen/BawgXX'
+    ],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
     id: 72,
     name: 'platformer-2',
     title: 'Platformer 2',
