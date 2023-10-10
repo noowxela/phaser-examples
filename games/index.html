@@ -13,7 +13,12 @@
 
     body {
       font-family: monospace;
-      background-color: #ffffff;
+      /* background-color: #ffffff; */
+      background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, .1) 15%, transparent 20%) 8px 9px;
+      background-color: rgba(0, 0, 0, 0);
+      background-size: auto, auto, auto, auto;
+      background-color: #282828;
+      background-size: 16px 16px;
     }
 
     .wrapper {}
@@ -33,6 +38,11 @@
       background-color: red;
       color: #fff;
       padding: 6px;
+    }
+
+    .logo {
+      color: white;
+      text-align: center;
     }
 
     .game {
@@ -105,56 +115,43 @@
     </div>
   </div>
   <script id="game-template" type="text/x-handlebars-template">
-  {{#each games}}
-    <div id="game-{{name}}" class="col-md-12 game-wrap {{#unless isPlayable}}notplayable{{/unless}}">
-      <div class="game">
-        <div class="screenshot col-md-6"
-          {{#if screenshots.[0]}}
-            style="background-image: url('{{screenshots.[0]}}');"
-          {{/if}}
-        >
-          &nbsp;
-          <span class="id">{{id}}</span>
-          {{#if demos.[0]}}
-            <a class="link-wrap"
-              target="_blank"
-              href="{{demos.[0]}}">
+        {{#each games}}
+        <div id="game-{{name}}" class="col-md-12 game-wrap {{#unless isPlayable}}notplayable{{/unless}}">
+            <div class="game">
+                <div class="screenshot col-md-6" {{#if screenshots.[0]}} style="background-image: url('{{screenshots.[0]}}');" {{/if}}>
+                    &nbsp;
+                    <span class="id">{{id}}</span> {{#if demos.[0]}}
+                    <a class="link-wrap" target="_blank" href="{{demos.[0]}}">
               &nbsp;
-            </a>
-          {{/if}}
-        </div><!-- .screenshot -->
+            </a> {{/if}}
+                </div>
+                <!-- .screenshot -->
 
-        <div class="meta col-md-6">
-          <div class="title">{{title}}</div>
-          <div class="desc">{{description}}</div>
-          <div class="version">Phaser version: {{phaserVersion}}</div>
-          <ul class="links">
-            {{#each demos}}
-              <li class="demo"><a href="{{this}}" target="_blank">{{this}}</a></li>
-            {{/each}}
-
-            {{#each inspirations}}
-              <li class="inspiration"><a href="{{this}}" target="_blank">{{this}}</a></li>
-            {{/each}}
-
-            {{#each references}}
-              <li class="reference"><a href="{{this}}" target="_blank">{{this}}</a></li>
-            {{/each}}
-
-            {{#each tags}}
-              <li class="tag"><a href="{{this}}" target="_blank">{{this}}</a></li>
-            {{/each}}
-          </ul>
-        </div><!-- .meta -->
-      </div>
-    </div>
-  {{/each}}
-  </div>
-</script>
+                <div class="meta col-md-6">
+                    <div class="title">{{title}}</div>
+                    <div class="desc">{{description}}</div>
+                    <div class="version">Phaser version: {{phaserVersion}}</div>
+                    <ul class="links">
+                        {{#each demos}}
+                        <li class="demo"><a href="{{this}}" target="_blank">{{this}}</a></li>
+                        {{/each}} {{#each inspirations}}
+                        <li class="inspiration"><a href="{{this}}" target="_blank">{{this}}</a></li>
+                        {{/each}} {{#each references}}
+                        <li class="reference"><a href="{{this}}" target="_blank">{{this}}</a></li>
+                        {{/each}} {{#each tags}}
+                        <li class="tag"><a href="{{this}}" target="_blank">{{this}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <!-- .meta -->
+            </div>
+        </div>
+        {{/each}}
+        </div>
+    </script>
   <script src="games.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
   <script>
-
     // ================================================================ Function
 
     function isLocal() {
@@ -182,13 +179,13 @@
     var ngamesEle = document.getElementById('ngames');
     var currentHost = window.location.origin; // Get the current host URL
 
-    var screenshotsHostName = isLocal()
-      ? currentHost + "/phaser-examples"
-      : 'https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages';
+    var screenshotsHostName = isLocal() ?
+      currentHost + "/phaser-examples" :
+      'https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages';
     screenshotsHostName += '/screenshots/';
-    var gameHostname = isLocal()
-      ? currentHost + "/phaser-examples"
-      : 'https://noowxela.github.io/phaser-examples';
+    var gameHostname = isLocal() ?
+      currentHost + "/phaser-examples" :
+      'https://noowxela.github.io/phaser-examples';
     gameHostname += '/games/';
     var gameHostRefname = 'http://jojoee.github.io/phaser-examples';
     gameHostRefname += '/games/';
@@ -211,7 +208,9 @@
       // start
       var source = gameTemplateEle.innerHTML;
       var template = Handlebars.compile(source);
-      var context = { games: games };
+      var context = {
+        games: games
+      };
       var html = template(context);
 
       ngamesEle.innerHTML = games.length
