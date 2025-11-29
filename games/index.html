@@ -103,47 +103,272 @@
       color: #337ab7;
       text-decoration: underline;
     }
+
+    /* Gallery Card Styles */
+    .game-wrap {
+      margin-bottom: 30px;
+    }
+
+    .game {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: auto;
+      background: #333;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: transform 0.2s;
+    }
+
+    .game:hover {
+      transform: translateY(-5px);
+    }
+
+    .screenshot {
+      width: 100%;
+      height: 200px;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .meta {
+      width: 100%;
+      padding: 15px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .version {
+      font-size: 14px;
+      color: #ccc;
+    }
+
+    /* Hide elements not needed for gallery view */
+    .desc, .links, .id, .game-wrap.notplayable .game:after {
+      display: none;
+    }
+
+    /* TOC Styles */
+    #toc-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: rgba(0, 0, 0, 0.8);
+      border: 1px solid #444;
+      border-radius: 5px;
+      padding: 10px;
+      max-width: 250px;
+      color: #fff;
+      font-family: monospace;
+    }
+
+    .toc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 5px;
+      user-select: none;
+    }
+
+    .toc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-height: 400px;
+      overflow-y: auto;
+      display: none;
+    }
+
+    .toc-list.visible {
+      display: block;
+    }
+
+    .toc-list li {
+      margin-bottom: 5px;
+    }
+
+    .toc-list a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 12px;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .toc-list a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .toc-list a.active {
+      color: #fff;
+      font-weight: bold;
+      border-left: 2px solid #337ab7;
+      padding-left: 5px;
+      margin-left: -7px; /* Compensate for border + padding */
+    }
+
+    .toc-toggle-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 0 5px;
+    }
+
+    /* Tooltip Styles */
+    .info-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 24px;
+      height: 24px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      cursor: pointer;
+      z-index: 20;
+      font-weight: bold;
+      font-family: serif;
+      user-select: none;
+      opacity: 0; /* Hidden by default */
+      transition: opacity 0.2s;
+    }
+
+    .game:hover .info-icon {
+      opacity: 1; /* Show on hover */
+    }
+
+    .info-icon:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .game .info-panel {
+      position: absolute;
+      top: -100%; /* Start hidden above */
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.95);
+      color: #fff;
+      padding: 40px 15px 15px 15px; /* Top padding for close button space */
+      transition: top 0.3s ease-in-out;
+      z-index: 15;
+      overflow-y: auto;
+      font-size: 13px;
+    }
+
+    .game .info-panel.visible {
+      top: 0;
+    }
+
+    .info-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .info-panel li {
+      margin-bottom: 8px;
+      word-break: break-all;
+    }
+
+    .info-panel a {
+      color: #4db8ff;
+      text-decoration: none;
+    }
+
+    .info-panel a:hover {
+      text-decoration: underline;
+    }
+
+    .filter-controls {
+      text-align: center;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .filter-controls select {
+      color: #333;
+      padding: 5px 10px;
+      border-radius: 4px;
+      border: none;
+    }
   </style>
 </head>
 
 <body>
+  <div id="toc-container">
+    <div class="toc-header" onclick="toggleTOC()">
+      <span>Table of Contents</span>
+      <button class="toc-toggle-btn">▼</button>
+    </div>
+    <ul id="toc-list" class="toc-list"></ul>
+  </div>
   <div class="container wrapper">
     <div class="row">
       <h2 class="logo">Phaser Examples, <span id="ngames">0</span> games</h2>
+      <div class="filter-controls">
+        <label for="version-select">Filter by Version: </label>
+        <select id="version-select" onchange="filterGames()">
+          <option value="all">All Versions</option>
+        </select>
+      </div>
       <hr>
       <div id="game-list"></div>
     </div>
   </div>
-  <script id="game-template" type="text/x-handlebars-template">
+    <script id="game-template" type="text/x-handlebars-template">
         {{#each games}}
-        <div id="game-{{name}}" class="col-md-12 game-wrap {{#unless isPlayable}}notplayable{{/unless}}">
+        <div id="game-{{name}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 game-wrap {{#unless isPlayable}}notplayable{{/unless}}">
             <div class="game">
-                <div class="screenshot col-md-6" {{#if screenshots.[0]}} style="background-image: url('{{screenshots.[0]}}');" {{/if}}>
-                    &nbsp;
-                    <span class="id">{{id}}</span> {{#if demos.[0]}}
-                    <a class="link-wrap" target="_blank" href="{{demos.[0]}}">
-              &nbsp;
-            </a> {{/if}}
+                <div class="screenshot" {{#if screenshots.[0]}} style="background-image: url('{{screenshots.[0]}}');" {{/if}}>
+                     {{#if demos.[0]}}
+                    <a class="link-wrap" target="_blank" href="{{demos.[0]}}"></a> 
+                    {{/if}}
                 </div>
-                <!-- .screenshot -->
 
-                <div class="meta col-md-6">
+                <div class="meta">
                     <div class="title">{{title}}</div>
-                    <div class="desc">{{description}}</div>
                     <div class="version">Phaser version: {{phaserVersion}}</div>
-                    <ul class="links">
-                        {{#each demos}}
-                        <li class="demo"><a href="{{this}}" target="_blank">{{this}}</a></li>
-                        {{/each}} {{#each inspirations}}
-                        <li class="inspiration"><a href="{{this}}" target="_blank">{{this}}</a></li>
-                        {{/each}} {{#each references}}
-                        <li class="reference"><a href="{{this}}" target="_blank">{{this}}</a></li>
-                        {{/each}} {{#each tags}}
+                </div>
+
+                {{#if references}}
+                <div class="info-icon" onclick="toggleInfo(this, event)">i</div>
+                <div class="info-panel">
+                    <strong>References:</strong>
+                    <br><br>
+                    <ul>
+                        {{#each inspirations}}
+                        <li><a href="{{this}}" target="_blank">{{this}}</a></li>
+                        {{/each}}
+                        {{#each references}}
+                        <li><a href="{{this}}" target="_blank">{{this}}</a></li>
+                        {{/each}}
+                        {{#each tags}}
                         <li class="tag"><a href="{{this}}" target="_blank">{{this}}</a></li>
                         {{/each}}
                     </ul>
                 </div>
-                <!-- .meta -->
+                {{/if}}
             </div>
         </div>
         {{/each}}
@@ -218,6 +443,161 @@
     }
 
     init()
+
+    // ================================================================ Filter
+    function populateFilters() {
+      var games = document.querySelectorAll('.game-wrap');
+      var versions = new Set();
+      for (var i = 0; i < games.length; i++) {
+        var vText = games[i].querySelector('.version').innerText;
+        // Extract major version (e.g., "2.6.2" -> "2")
+        var match = vText.match(/Phaser version:\s*(\d+)/i);
+        if (match) {
+          versions.add(match[1]);
+        }
+      }
+      
+      var select = document.getElementById('version-select');
+      var sortedVersions = Array.from(versions).sort();
+      
+      for (var i = 0; i < sortedVersions.length; i++) {
+        var v = sortedVersions[i];
+        var opt = document.createElement('option');
+        opt.value = v;
+        opt.innerText = 'Phaser ' + v;
+        select.appendChild(opt);
+      }
+    }
+
+    function filterGames() {
+      var select = document.getElementById('version-select');
+      var version = select.value;
+      var games = document.querySelectorAll('.game-wrap');
+      var count = 0;
+
+      for (var i = 0; i < games.length; i++) {
+        var game = games[i];
+        var vText = game.querySelector('.version').innerText;
+        var match = vText.match(/Phaser version:\s*(\d+)/i);
+        var gameVer = match ? match[1] : '';
+
+        if (version === 'all' || gameVer === version) {
+          game.style.display = 'block';
+          count++;
+        } else {
+          game.style.display = 'none';
+        }
+      }
+
+      document.getElementById('ngames').innerText = count;
+      generateTOC(); // Regenerate TOC based on visible games
+      updateActiveTOC();
+    }
+
+    function toggleInfo(icon, event) {
+      // Prevent triggering the game link if any
+      event.stopPropagation();
+      event.preventDefault();
+      
+      var panel = icon.nextElementSibling;
+      if (panel.classList.contains('visible')) {
+        panel.classList.remove('visible');
+        icon.innerText = 'i';
+        icon.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+      } else {
+        panel.classList.add('visible');
+        icon.innerText = 'x';
+        icon.style.backgroundColor = 'rgba(200, 0, 0, 0.8)';
+        
+        // Add listener to close on mouseleave
+        var gameCard = icon.closest('.game');
+        var closeOnLeave = function() {
+            panel.classList.remove('visible');
+            icon.innerText = 'i';
+            icon.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+            gameCard.removeEventListener('mouseleave', closeOnLeave);
+        };
+        gameCard.addEventListener('mouseleave', closeOnLeave);
+      }
+    }
+
+    // ================================================================ TOC
+    function generateTOC() {
+      var tocList = document.getElementById('toc-list');
+      tocList.innerHTML = ''; // Clear existing
+      
+      // Select games after they are rendered
+      var games = document.querySelectorAll('.game-wrap');
+
+      for (var i = 0; i < games.length; i++) {
+        var game = games[i];
+        // Skip hidden games
+        if (game.style.display === 'none') continue;
+        
+        var id = game.id;
+        // The title is inside .meta .title
+        var titleEl = game.querySelector('.title');
+        if (titleEl) {
+          var title = titleEl.innerText;
+          var li = document.createElement('li');
+          var a = document.createElement('a');
+          a.href = '#' + id;
+          a.innerText = title;
+          a.title = title;
+          li.appendChild(a);
+          tocList.appendChild(li);
+        }
+      }
+    }
+
+    function toggleTOC() {
+      var list = document.getElementById('toc-list');
+      var btn = document.querySelector('.toc-toggle-btn');
+      if (list.style.display === 'block') {
+        list.style.display = 'none';
+        btn.innerText = '▼';
+      } else {
+        list.style.display = 'block';
+        btn.innerText = '▲';
+      }
+    }
+
+    function updateActiveTOC() {
+      var games = document.querySelectorAll('.game-wrap');
+      var scrollPos = window.scrollY || document.documentElement.scrollTop;
+      var offset = 150; // Offset to trigger earlier
+
+      var currentId = '';
+
+      for (var i = 0; i < games.length; i++) {
+        var game = games[i];
+        // Skip hidden games
+        if (game.style.display === 'none') continue;
+
+        // Check if the game is near the top of the viewport
+        if (game.offsetTop <= scrollPos + offset) {
+          currentId = game.id;
+        }
+      }
+
+      var links = document.querySelectorAll('.toc-list a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].classList.remove('active');
+        if (currentId && links[i].getAttribute('href') === '#' + currentId) {
+          links[i].classList.add('active');
+          // Scroll TOC to keep active item in view
+          links[i].scrollIntoView({ block: 'nearest', inline: 'nearest' });
+        }
+      }
+    }
+
+    // Generate TOC after init
+    populateFilters();
+    generateTOC();
+    
+    // Scroll Spy
+    window.addEventListener('scroll', updateActiveTOC);
+    updateActiveTOC(); // Initial check
   </script>
 </body>
 

@@ -88,7 +88,7 @@ var games = [
     title: 'Fill the Holes',
     description: '',
     phaserVersion: '2.4.4',
-    isPlayable: false,
+    isPlayable: true,
     screenshots: [
       'fill-the-holes.jpg'
     ],
@@ -122,7 +122,7 @@ var games = [
     title: 'Connected',
     description: '',
     phaserVersion: '2.4.4',
-    isPlayable: false,
+    isPlayable: true,
     screenshots: [
       'connected.jpg'
     ],
@@ -139,7 +139,7 @@ var games = [
     title: 'Save the City',
     description: '',
     phaserVersion: '2.4.4',
-    isPlayable: false,
+    isPlayable: true,
     screenshots: [
       'save-the-city.jpg'
     ],
@@ -190,7 +190,7 @@ var games = [
     title: 'The Three Hearths',
     description: '',
     phaserVersion: '2.4.4',
-    isPlayable: false,
+    isPlayable: true,
     screenshots: [
       'the-three-hearths.jpg'
     ],
