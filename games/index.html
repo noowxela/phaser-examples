@@ -170,8 +170,83 @@
       white-space: nowrap;
     }
 
+    /* Coming soon (former games0) */
+    .game-wrap.coming-soon .game {
+      cursor: default;
+    }
+
+    .game-wrap.coming-soon .game:hover {
+      transform: none;
+    }
+
+    .game-wrap.coming-soon .screenshot {
+      position: relative;
+    }
+
+    .game-wrap.dummy .game {
+      cursor: default;
+    }
+
+    .game-wrap.dummy .game:hover {
+      transform: none;
+    }
+
+    .dummy-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 11;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(80, 50, 0, 0.55);
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    body.admin-mode .game-wrap.dummy .dummy-banner {
+      display: none;
+    }
+
+    body.admin-mode .game-wrap.dummy .admin-play-link {
+      display: block;
+    }
+
+    body.admin-mode .game-wrap.dummy .game {
+      cursor: pointer;
+    }
+
+    body.admin-mode .game-wrap.dummy .game:hover {
+      transform: translateY(-5px);
+    }
+
+    .coming-soon-banner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 11;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.55);
+      color: #fff;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
     /* Hide elements not needed for gallery view */
-    .desc, .links, .id, .game-wrap.notplayable .game:after {
+    .desc, .links, .id, .game-wrap.notplayable:not(.coming-soon) .game:after {
       display: none;
     }
 
@@ -330,6 +405,44 @@
       border: none;
     }
 
+    .section-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .section-tab {
+      padding: 8px 18px;
+      border: 1px solid #555;
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #ccc;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+    }
+
+    .section-tab:hover {
+      color: #fff;
+      border-color: #777;
+      background: rgba(40, 40, 40, 0.9);
+    }
+
+    .section-tab.active {
+      color: #fff;
+      border-color: #337ab7;
+      background: #337ab7;
+    }
+
+    .section-tab .tab-count {
+      opacity: 0.85;
+      font-size: 11px;
+      margin-left: 4px;
+    }
+
     /* Top-right page menu */
     #page-menu {
       position: fixed;
@@ -463,8 +576,67 @@
       box-shadow: 0 0 0 2px rgba(51, 122, 183, 0.5);
     }
 
+    .page-menu-hint {
+      margin: 0;
+      padding: 6px 14px 10px;
+      font-size: 11px;
+      line-height: 1.45;
+      color: #888;
+    }
+
+    .page-menu-hint code {
+      color: #bbb;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 1px 4px;
+      border-radius: 3px;
+    }
+
     body.hide-phaser-version-tags .phaser-tag {
       display: none !important;
+    }
+
+    /* Admin mode — open coming-soon games for local dev/review */
+    body.admin-mode #page-menu-btn {
+      border-color: #c9a227;
+      box-shadow: 0 0 0 1px rgba(201, 162, 39, 0.35);
+    }
+
+    .game-wrap.coming-soon .admin-play-link,
+    .game-wrap.dummy .admin-play-link {
+      display: none;
+    }
+
+    body.admin-mode .game-wrap.coming-soon .coming-soon-banner {
+      display: none;
+    }
+
+    body.admin-mode .game-wrap.coming-soon .admin-play-link {
+      display: block;
+    }
+
+    body.admin-mode .game-wrap.coming-soon .game {
+      cursor: pointer;
+    }
+
+    body.admin-mode .game-wrap.coming-soon .game:hover {
+      transform: translateY(-5px);
+    }
+
+    body.admin-mode .game-wrap.coming-soon .game:before {
+      content: 'Dev';
+      z-index: 13;
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      background-color: #c9a227;
+      color: #111;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -472,7 +644,7 @@
 <body>
   <div id="page-menu">
     <button type="button" id="page-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="page-menu-panel">
-      Menu <span aria-hidden="true">▾</span>
+      <span id="page-menu-label">Menu</span> <span aria-hidden="true">▾</span>
     </button>
     <div id="page-menu-panel" role="menu" aria-labelledby="page-menu-btn" aria-hidden="true">
       <div class="page-menu-section">Game cards</div>
@@ -484,6 +656,16 @@
           <span class="toggle-slider"></span>
         </span>
       </label>
+      <div class="page-menu-section">Developer</div>
+      <label class="page-menu-toggle-row" role="menuitem">
+        <span class="page-menu-toggle-label" id="admin-mode-toggle-desc">Admin mode (play WIP / dummy)</span>
+        <span class="page-menu-toggle-state" id="admin-mode-toggle-state" aria-hidden="true">Off</span>
+        <span class="toggle-switch">
+          <input type="checkbox" id="admin-mode-toggle" aria-describedby="admin-mode-toggle-desc" aria-label="Toggle admin mode to open coming soon games">
+          <span class="toggle-slider"></span>
+        </span>
+      </label>
+      <p class="page-menu-hint">Opens <code>games/coming-soon/</code> and <code>games/dummy/</code> demos locally. Saved in this browser only.</p>
     </div>
   </div>
   <div id="toc-container">
@@ -503,17 +685,45 @@
         </select>
       </div>
       <hr>
+      <div class="section-tabs" role="tablist" aria-label="Game section">
+        <button type="button" class="section-tab active" role="tab" aria-selected="true" data-section="all" id="section-tab-all">
+          All<span class="tab-count" id="section-count-all"></span>
+        </button>
+        <button type="button" class="section-tab" role="tab" aria-selected="false" data-section="ready" id="section-tab-ready">
+          Ready<span class="tab-count" id="section-count-ready"></span>
+        </button>
+        <button type="button" class="section-tab" role="tab" aria-selected="false" data-section="coming-soon" id="section-tab-coming-soon">
+          Coming soon<span class="tab-count" id="section-count-coming-soon"></span>
+        </button>
+        <button type="button" class="section-tab" role="tab" aria-selected="false" data-section="dummy" id="section-tab-dummy">
+          Dummy<span class="tab-count" id="section-count-dummy"></span>
+        </button>
+      </div>
       <div id="game-list"></div>
     </div>
   </div>
     <script id="game-template" type="text/x-handlebars-template">
         {{#each games}}
-        <div id="game-{{name}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 game-wrap {{#unless isPlayable}}notplayable{{/unless}}" data-phaser-version="{{phaserVersion}}">
+        <div id="game-{{#if slug}}{{slug}}{{else}}{{name}}{{/if}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 game-wrap{{#if comingSoon}} coming-soon{{/if}}{{#if isDummy}} dummy{{/if}}{{#unless comingSoon}}{{#unless isDummy}}{{#unless isPlayable}} notplayable{{/unless}}{{/unless}}{{/unless}}" data-section="{{section}}" data-phaser-version="{{phaserVersion}}">
             <div class="game">
                 <span class="phaser-tag" title="Phaser version">{{phaserVersion}}</span>
                 <div class="screenshot" {{#if screenshots.[0]}} style="background-image: url('{{screenshots.[0]}}');" {{/if}}>
-                     {{#if demos.[0]}}
-                    <a class="link-wrap" target="_blank" href="{{demos.[0]}}"></a> 
+                    {{#if comingSoon}}
+                    <div class="coming-soon-banner">Coming soon</div>
+                    {{#if demos.[0]}}
+                    <a class="link-wrap admin-play-link" target="_blank" href="{{demos.[0]}}"></a>
+                    {{/if}}
+                    {{else}}
+                    {{#if isDummy}}
+                    <div class="dummy-banner">Dummy</div>
+                    {{#if demos.[0]}}
+                    <a class="link-wrap admin-play-link" target="_blank" href="{{demos.[0]}}"></a>
+                    {{/if}}
+                    {{else}}
+                    {{#if demos.[0]}}
+                    <a class="link-wrap" target="_blank" href="{{demos.[0]}}"></a>
+                    {{/if}}
+                    {{/if}}
                     {{/if}}
                 </div>
 
@@ -549,10 +759,51 @@
   <script>
     // ================================================================ Function
 
-    function isLocal() {
-      if (window.location.host == "http://http://127.0.0.1:5500/" || 'localhost:3000')
-        return true
-      return false
+    function getRepoBasePath() {
+      if (window.location.pathname.indexOf('/phaser-examples') !== -1) {
+        return '/phaser-examples';
+      }
+      if (window.location.hostname.indexOf('github.io') !== -1) {
+        return '/phaser-examples';
+      }
+      return '';
+    }
+
+
+    var ADMIN_MODE_KEY = 'phaser-examples-admin-mode';
+
+    function getAdminModePreference() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('admin') === '1') {
+        return true;
+      }
+      return localStorage.getItem(ADMIN_MODE_KEY) === 'on';
+    }
+
+    function applyAdminModePreference() {
+      var on = getAdminModePreference();
+      document.body.classList.toggle('admin-mode', on);
+      var label = document.getElementById('page-menu-label');
+      if (label) {
+        label.textContent = on ? 'Menu · Admin' : 'Menu';
+      }
+    }
+
+    function syncAdminModeToggle() {
+      var toggle = document.getElementById('admin-mode-toggle');
+      var stateLabel = document.getElementById('admin-mode-toggle-state');
+      if (!toggle) return;
+      var on = getAdminModePreference();
+      toggle.checked = on;
+      if (stateLabel) {
+        stateLabel.textContent = on ? 'On' : 'Off';
+      }
+    }
+
+    function setAdminModePreference(on) {
+      localStorage.setItem(ADMIN_MODE_KEY, on ? 'on' : 'off');
+      applyAdminModePreference();
+      syncAdminModeToggle();
     }
 
     var PHASER_TAG_PREF_KEY = 'phaser-examples-card-phaser-version';
@@ -621,7 +872,15 @@
         });
       }
 
+      var adminToggle = document.getElementById('admin-mode-toggle');
+      if (adminToggle) {
+        adminToggle.addEventListener('change', function () {
+          setAdminModePreference(adminToggle.checked);
+        });
+      }
+
       syncPhaserTagToggle();
+      syncAdminModeToggle();
     }
 
     // ================================================================ Handlebars
@@ -641,32 +900,63 @@
     var gameTemplateEle = document.getElementById('game-template');
     var gameListEle = document.getElementById('game-list');
     var ngamesEle = document.getElementById('ngames');
-    var currentHost = window.location.origin; // Get the current host URL
+    var currentHost = window.location.origin;
+    var repoBase = getRepoBasePath();
 
-    var screenshotsHostName = isLocal() ?
-      currentHost + "/phaser-examples" :
-      'https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages';
-    screenshotsHostName += '/screenshots/';
-    var gameHostname = isLocal() ?
-      currentHost + "/phaser-examples" :
-      'https://noowxela.github.io/phaser-examples';
-    gameHostname += '/games/';
+    function getScreenshotsBase() {
+      var host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1') {
+        return currentHost + repoBase + '/screenshots/';
+      }
+      return 'https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages/screenshots/';
+    }
+
+    function resolveScreenshotPath(game, filename) {
+      if (!filename) {
+        return filename;
+      }
+      if (filename.indexOf('/') >= 0) {
+        return filename;
+      }
+      return game.section + '/' + filename;
+    }
+    var gameHostname = currentHost + repoBase + '/games/';
     var gameHostRefname = 'http://jojoee.github.io/phaser-examples';
     gameHostRefname += '/games/';
 
+    function getGameSection(game) {
+      var name = game.name || '';
+      if (game.comingSoon || name.indexOf('coming-soon/') === 0) {
+        return 'coming-soon';
+      }
+      if (name.indexOf('dummy/') === 0 || game.isDummy) {
+        return 'dummy';
+      }
+      return 'ready';
+    }
+
     function init() {
       for (var i = 0; i < games.length; i++) {
-        // Screenshots
+        games[i].section = getGameSection(games[i]);
+        games[i].isDummy = games[i].section === 'dummy';
+
+        // Screenshots — screenshots/<section>/<file> (e.g. ready/run.jpg)
+        var screenshotsBase = getScreenshotsBase();
         var nScreenshots = games[i].screenshots.length;
         for (var j = 0; j < nScreenshots; j++) {
-          games[i].screenshots[j] = screenshotsHostName + games[i].screenshots[j];
+          var shotPath = resolveScreenshotPath(games[i], games[i].screenshots[j]);
+          games[i].screenshots[j] = screenshotsBase + shotPath;
         }
 
-        // Demos
+        // Demos — public games get mirror link; coming-soon gets local URL for admin mode
         var selfHostDemo = gameHostname + games[i].name;
-        var refHostDemo = gameHostRefname + games[i].name;
-        games[i].demos.unshift(refHostDemo);
-        games[i].demos.unshift(selfHostDemo);
+        if (games[i].comingSoon || games[i].section === 'dummy') {
+          games[i].demos.unshift(selfHostDemo);
+        } else {
+          var refHostDemo = gameHostRefname + games[i].name;
+          games[i].demos.unshift(refHostDemo);
+          games[i].demos.unshift(selfHostDemo);
+        }
       }
 
       // start
@@ -681,6 +971,10 @@
       gameListEle.innerHTML = html;
     }
 
+    if (new URLSearchParams(window.location.search).get('admin') === '1') {
+      setAdminModePreference(true);
+    }
+    applyAdminModePreference();
     applyPhaserTagPreference();
     init()
 
@@ -720,17 +1014,73 @@
       }
     }
 
+    var SECTION_TAB_KEY = 'phaser-examples-section-tab';
+
+    function getSectionFilter() {
+      var active = document.querySelector('.section-tab.active');
+      return active ? active.getAttribute('data-section') : 'all';
+    }
+
+    function setSectionFilter(section) {
+      var tabs = document.querySelectorAll('.section-tab');
+      for (var i = 0; i < tabs.length; i++) {
+        var tab = tabs[i];
+        var isActive = tab.getAttribute('data-section') === section;
+        tab.classList.toggle('active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      }
+      localStorage.setItem(SECTION_TAB_KEY, section);
+      filterGames();
+    }
+
+    function updateSectionTabCounts() {
+      var select = document.getElementById('version-select');
+      var version = select ? select.value : 'all';
+      var gameWraps = document.querySelectorAll('.game-wrap');
+      var counts = { all: 0, ready: 0, 'coming-soon': 0, dummy: 0 };
+
+      for (var i = 0; i < gameWraps.length; i++) {
+        var gameWrap = gameWraps[i];
+        var gameVer = phaserMajorVersion(gameWrap.getAttribute('data-phaser-version'));
+        if (version !== 'all' && gameVer !== version) {
+          continue;
+        }
+        var section = gameWrap.getAttribute('data-section');
+        counts.all++;
+        if (section === 'ready') {
+          counts.ready++;
+        } else if (section === 'coming-soon') {
+          counts['coming-soon']++;
+        } else if (section === 'dummy') {
+          counts.dummy++;
+        }
+      }
+
+      var allEl = document.getElementById('section-count-all');
+      var readyEl = document.getElementById('section-count-ready');
+      var soonEl = document.getElementById('section-count-coming-soon');
+      var dummyEl = document.getElementById('section-count-dummy');
+      if (allEl) allEl.textContent = ' (' + counts.all + ')';
+      if (readyEl) readyEl.textContent = ' (' + counts.ready + ')';
+      if (soonEl) soonEl.textContent = ' (' + counts['coming-soon'] + ')';
+      if (dummyEl) dummyEl.textContent = ' (' + counts.dummy + ')';
+    }
+
     function filterGames() {
       var select = document.getElementById('version-select');
       var version = select.value;
+      var section = getSectionFilter();
       var gameWraps = document.querySelectorAll('.game-wrap');
       var count = 0;
 
       for (var i = 0; i < gameWraps.length; i++) {
         var gameWrap = gameWraps[i];
         var gameVer = phaserMajorVersion(gameWrap.getAttribute('data-phaser-version'));
+        var gameSection = gameWrap.getAttribute('data-section');
+        var versionMatch = version === 'all' || gameVer === version;
+        var sectionMatch = section === 'all' || gameSection === section;
 
-        if (version === 'all' || gameVer === version) {
+        if (versionMatch && sectionMatch) {
           gameWrap.classList.remove('is-filtered-out');
           count++;
         } else {
@@ -739,8 +1089,25 @@
       }
 
       document.getElementById('ngames').innerText = count;
+      updateSectionTabCounts();
       generateTOC();
       updateActiveTOC();
+    }
+
+    function setupSectionTabs() {
+      var tabs = document.querySelectorAll('.section-tab');
+      var saved = localStorage.getItem(SECTION_TAB_KEY);
+      if (saved === 'ready' || saved === 'coming-soon' || saved === 'dummy' || saved === 'all') {
+        setSectionFilter(saved);
+      } else {
+        updateSectionTabCounts();
+      }
+
+      for (var i = 0; i < tabs.length; i++) {
+        tabs[i].addEventListener('click', function () {
+          setSectionFilter(this.getAttribute('data-section'));
+        });
+      }
     }
 
     function setupVersionFilter() {
@@ -850,6 +1217,7 @@
 
     // Generate TOC after init
     populateFilters();
+    setupSectionTabs();
     setupVersionFilter();
     generateTOC();
     

@@ -5,6 +5,8 @@ title: string
 description: string
 phaserVersion: string
 isPlayable: boolean
+comingSoon: boolean (optional; gallery card is not clickable)
+slug: string (optional; HTML id when name contains slashes)
 screenshots: array
 references: array
 tags: array (lowercase except particular name)
@@ -16,13 +18,14 @@ var games = [
   
   {
     id: 77,
-    name: 'run',
+    name: 'ready/run',
+    slug: 'ready-run',
     title: 'Run',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'run.jpg'
+      'ready/run.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/1/'
@@ -33,13 +36,14 @@ var games = [
   },
   {
     id: 70,
-    name: 'pixel-war',
+    name: 'ready/pixel-war',
+    slug: 'ready-pixel-war',
     title: 'Pixel War',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'pixel-war.jpg'
+      'ready/pixel-war.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/2/'
@@ -50,13 +54,14 @@ var games = [
   },
   {
     id: 9,
-    name: 'box-jump',
+    name: 'ready/box-jump',
+    slug: 'ready-box-jump',
     title: 'Box Jump',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'box-jump.jpg'
+      'ready/box-jump.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/3/'
@@ -67,13 +72,14 @@ var games = [
   },
   {
     id: 54,
-    name: 'man-vs-penguins',
+    name: 'ready/man-vs-penguins',
+    slug: 'ready-man-vs-penguins',
     title: 'Man vs Penguins',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'man-vs-penguins.jpg'
+      'ready/man-vs-penguins.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/4/'
@@ -84,13 +90,14 @@ var games = [
   },
   {
     id: 33,
-    name: 'fill-the-holes',
+    name: 'ready/fill-the-holes',
+    slug: 'ready-fill-the-holes',
     title: 'Fill the Holes',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'fill-the-holes.jpg'
+      'ready/fill-the-holes.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/5/'
@@ -101,13 +108,14 @@ var games = [
   },
   {
     id: 74,
-    name: 'princess-quest',
+    name: 'ready/princess-quest',
+    slug: 'ready-princess-quest',
     title: 'Princess Quest',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
     screenshots: [
-      'princess-quest.jpg'
+      'ready/princess-quest.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/6/'
@@ -118,13 +126,14 @@ var games = [
   },
   {
     id: 19,
-    name: 'connected',
+    name: 'ready/connected',
+    slug: 'ready-connected',
     title: 'Connected',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'connected.jpg'
+      'ready/connected.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/7/'
@@ -135,13 +144,14 @@ var games = [
   },
   {
     id: 80,
-    name: 'save-the-city',
+    name: 'ready/save-the-city',
+    slug: 'ready-save-the-city',
     title: 'Save the City',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'save-the-city.jpg'
+      'ready/save-the-city.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/8/'
@@ -152,13 +162,14 @@ var games = [
   },
   {
     id: 47,
-    name: 'i-hate-rabbits',
+    name: 'ready/i-hate-rabbits',
+    slug: 'ready-i-hate-rabbits',
     title: 'I Hate Rabbits',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'i-hate-rabbits.jpg'
+      'ready/i-hate-rabbits.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/9/'
@@ -169,13 +180,14 @@ var games = [
   },
   {
     id: 23,
-    name: 'dark-blue',
+    name: 'ready/dark-blue',
+    slug: 'ready-dark-blue',
     title: 'Dark Blue',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
     screenshots: [
-      'dark-blue.jpg'
+      'ready/dark-blue.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/10/'
@@ -186,13 +198,14 @@ var games = [
   },
   {
     id: 100,
-    name: 'the-three-hearths',
+    name: 'ready/the-three-hearths',
+    slug: 'ready-the-three-hearths',
     title: 'The Three Hearths',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'the-three-hearths.jpg'
+      'ready/the-three-hearths.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/11/'
@@ -203,13 +216,14 @@ var games = [
   },
   {
     id: 21,
-    name: 'crazy-snake',
+    name: 'ready/crazy-snake',
+    slug: 'ready-crazy-snake',
     title: 'Crazy Snake',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'crazy-snake.jpg'
+      'ready/crazy-snake.jpg'
     ],
     references: [
       'http://www.lessmilk.com/games/12/'
@@ -220,13 +234,14 @@ var games = [
   },
   {
     id: 36,
-    name: 'flappy-bird-2',
+    name: 'ready/flappy-bird-2',
+    slug: 'ready-flappy-bird-2',
     title: 'Flappy bird 2',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'flappy-bird-2.jpg'
+      'ready/flappy-bird-2.jpg'
     ],
     references: [
       'http://blog.lessmilk.com/how-to-make-flappy-bird-in-html5-2/'
@@ -238,13 +253,14 @@ var games = [
 
   {
     id: 27,
-    name: 'doodle-jump',
+    name: 'ready/doodle-jump',
+    slug: 'ready-doodle-jump',
     title: 'Doodle Jump',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'doodle-jump.jpg'
+      'ready/doodle-jump.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/coding-tips-003/'
@@ -255,13 +271,14 @@ var games = [
   },
   {
     id: 34,
-    name: 'first-game',
+    name: 'ready/first-game',
+    slug: 'ready-first-game',
     title: 'First Game',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'first-game.jpg'
+      'ready/first-game.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/making-your-first-phaser-game'
@@ -272,13 +289,14 @@ var games = [
   },
   {
     id: 121,
-    name: 'phaser-jump',
+    name: 'ready/phaser-jump',
+    slug: 'ready-phaser-jump',
     title: 'Phaser Jump',
     description: 'A jump game',
     phaserVersion: '2.1.1',
     isPlayable: true,
     screenshots: [
-      'phaser-jump.png'
+      'ready/phaser-jump.png'
     ],
     references: [
       'https://codepen.io/jackrugile/pen/BawgXX'
@@ -289,13 +307,14 @@ var games = [
   },
   {
     id: 72,
-    name: 'platformer-2',
+    name: 'ready/platformer-2',
+    slug: 'ready-platformer-2',
     title: 'Platformer 2',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'platformer-2.jpg'
+      'ready/platformer-2.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/coding-tips-004'
@@ -307,13 +326,14 @@ var games = [
 
   {
     id: 13,
-    name: 'brick',
+    name: 'ready/brick',
+    slug: 'ready-brick',
     title: 'Brick',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
     screenshots: [
-      'brick.jpg'
+      'ready/brick.jpg'
     ],
     references: [
       'http://dailyjs.com/2014/09/16/phaser-tutorial/'
@@ -324,13 +344,14 @@ var games = [
   },
   {
     id: 14,
-    name: 'bulletpool',
+    name: 'ready/bulletpool',
+    slug: 'ready-bulletpool',
     title: 'Bulletpool',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'bulletpool.jpg'
+      'ready/bulletpool.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/coding-tips-007'
@@ -341,13 +362,14 @@ var games = [
   },
   {
     id: 26,
-    name: 'digger',
+    name: 'ready/digger',
+    slug: 'ready-digger',
     title: 'Digger',
     description: '',
     phaserVersion: '2.0.7',
     isPlayable: false,
     screenshots: [
-      'digger.jpg'
+      'ready/digger.jpg'
     ],
     references: [
       'https://gamedevacademy.org/make-a-quick-phaser-compatible-game-using-mightyeditor/'
@@ -360,13 +382,14 @@ var games = [
   },
   {
     id: 35,
-    name: 'flappy-bird',
+    name: 'ready/flappy-bird',
+    slug: 'ready-flappy-bird',
     title: 'Flappy bird',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'flappy-bird.jpg'
+      'ready/flappy-bird.jpg'
     ],
     references: [
       'https://developer.amazon.com/public/community/post/Tx1NQ9QEA4MWGTY/Intro-To-Phaser-Part-1-Setting-Up-Your-Dev-Environment-and-Phaser'
@@ -377,13 +400,14 @@ var games = [
   },
   {
     id: 37,
-    name: 'flappy-bird-reborn',
+    name: 'ready/flappy-bird-reborn',
+    slug: 'ready-flappy-bird-reborn',
     title: 'Flappy Bird Reborn',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'flappy-bird-reborn.jpg'
+      'ready/flappy-bird-reborn.jpg'
     ],
     references: [
       'https://github.com/codevinsky/flappy-bird-reborn'
@@ -396,13 +420,14 @@ var games = [
   },
   {
     id: 48,
-    name: 'infinite-runner',
+    name: 'ready/infinite-runner',
+    slug: 'ready-infinite-runner',
     title: 'Infinite Runner',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'infinite-runner.jpg'
+      'ready/infinite-runner.jpg'
     ],
     references: [
       'http://codepen.io/ebrewe/pen/MamqXM'
@@ -413,13 +438,14 @@ var games = [
   },
   {
     id: 61,
-    name: 'orbital-debris',
+    name: 'ready/orbital-debris',
+    slug: 'ready-orbital-debris',
     title: 'Orbital Debris',
     description: '',
     phaserVersion: '1.1.6',
     isPlayable: true,
     screenshots: [
-      'orbital-debris.jpg'
+      'ready/orbital-debris.jpg'
     ],
     references: [
       'http://www.allworkallplay.org/blog/orbital-debris-making-an-html5-game-with-phaser'
@@ -430,13 +456,14 @@ var games = [
   },
   {
     id: 62,
-    name: 'pacman',
+    name: 'ready/pacman',
+    slug: 'ready-pacman',
     title: 'Pacman',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'pacman.jpg'
+      'ready/pacman.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/coding-tips-005'
@@ -447,13 +474,14 @@ var games = [
   },
   {
     id: 63,
-    name: 'pacman-2',
+    name: 'ready/pacman-2',
+    slug: 'ready-pacman-2',
     title: 'Pacman 2',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'pacman-2.jpg'
+      'ready/pacman-2.jpg'
     ],
     references: [
       'https://github.com/plissken2013es/phaserPacmanClone',
@@ -468,13 +496,14 @@ var games = [
   },
   {
     id: 79,
-    name: 'santa-on-the-run',
+    name: 'ready/santa-on-the-run',
+    slug: 'ready-santa-on-the-run',
     title: 'Santa On The Run',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'santa-on-the-run.jpg'
+      'ready/santa-on-the-run.jpg'
     ],
     references: [
       'http://codepen.io/natewiley/pen/gbwWMX'
@@ -486,13 +515,14 @@ var games = [
   
   {
     id: 83,
-    name: 'shootout',
+    name: 'ready/shootout',
+    slug: 'ready-shootout',
     title: 'Shootout',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'shootout.jpg'
+      'ready/shootout.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/coding-tips-006'
@@ -504,13 +534,14 @@ var games = [
   
   {
     id: 97,
-    name: 'super-coin-box',
+    name: 'ready/super-coin-box',
+    slug: 'ready-super-coin-box',
     title: 'Super Coin Box',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'super-coin-box.jpg'
+      'ready/super-coin-box.jpg'
     ],
     references: [
       'https://github.com/dmaslov/super-coin-box'
@@ -523,13 +554,14 @@ var games = [
   },
   {
     id: 98,
-    name: 'tank',
+    name: 'ready/tank',
+    slug: 'ready-tank',
     title: 'Tank',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'tank.jpg'
+      'ready/tank.jpg'
     ],
     references: [
       'http://phaser.io/tutorials/coding-tips-002/'
@@ -540,13 +572,14 @@ var games = [
   },
   {
     id: 3,
-    name: 'angry-birds-space',
+    name: 'ready/angry-birds-space',
+    slug: 'ready-angry-birds-space',
     title: 'Angry Birds Space',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'angry-birds-space.jpg'
+      'ready/angry-birds-space.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/06/19/simulate-planet-gravity-with-phaser-box2d-as-seen-on-angry-birds-space/',
@@ -560,13 +593,14 @@ var games = [
   },
   {
     id: 7,
-    name: 'boom-dots',
+    name: 'ready/boom-dots',
+    slug: 'ready-boom-dots',
     title: 'Boom Dots',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'boom-dots.jpg'
+      'ready/boom-dots.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/04/16/create-an-html5-game-like-boom-dots-in-less-than-100-lines-of-code-with-phaser/',
@@ -580,13 +614,14 @@ var games = [
   },
   {
     id: 12,
-    name: 'bresenham-light',
+    name: 'ready/bresenham-light',
+    slug: 'ready-bresenham-light',
     title: 'Bresenham Light',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'bresenham-light.jpg'
+      'ready/bresenham-light.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/12/15/calculating-dynamic-light-and-shadows-in-tile-based-roguelike-games-part-3-let-there-be-bresenham-light/',
@@ -598,13 +633,14 @@ var games = [
   },
   {
     id: 18,
-    name: 'clocks',
+    name: 'ready/clocks',
+    slug: 'ready-clocks',
     title: 'Clocks',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'clocks.jpg'
+      'ready/clocks.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2016/01/07/clocks-the-game-html5-prototype-step-3-actually-playing-the-game/',
@@ -616,13 +652,14 @@ var games = [
   },
   {
     id: 31,
-    name: 'easystarjs',
+    name: 'ready/easystarjs',
+    slug: 'ready-easystarjs',
     title: 'Easystarjs',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'easystarjs.jpg'
+      'ready/easystarjs.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/07/03/pure-javascript-a-maze-solving-with-a-bit-of-magic-thanks-to-phaser/',
@@ -635,13 +672,14 @@ var games = [
   },
   {
     id: 32,
-    name: 'endless-scale',
+    name: 'ready/endless-scale',
+    slug: 'ready-endless-scale',
     title: 'Endless Scale',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'endless-scale.jpg'
+      'ready/endless-scale.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/03/25/quick-tip-how-to-scale-your-html5-endless-runner-game-to-play-it-on-mobile-devices/'
@@ -654,13 +692,14 @@ var games = [
   },
   {
     id: 91,
-    name: 'spring-ninja',
+    name: 'ready/spring-ninja',
+    slug: 'ready-spring-ninja',
     title: 'Spring Ninja',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'spring-ninja.jpg'
+      'ready/spring-ninja.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/03/16/html5-prototype-of-an-endless-runner-game-like-spring-ninja/',
@@ -674,13 +713,14 @@ var games = [
   },
   {
     id: 92,
-    name: 'spring-ninja-double-jump',
+    name: 'ready/spring-ninja-double-jump',
+    slug: 'ready-spring-ninja-double-jump',
     title: 'Spring Ninja Double Jump',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'spring-ninja-double-jump.jpg'
+      'ready/spring-ninja-double-jump.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/06/12/the-basics-of-double-jump-concept-in-an-endless-runner-game-like-spring-ninja/',
@@ -693,13 +733,14 @@ var games = [
   },
   {
     id: 44,
-    name: 'hi-low',
+    name: 'ready/hi-low',
+    slug: 'ready-hi-low',
     title: 'Hi Low',
     description: '',
     phaserVersion: '2.0.7',
     isPlayable: true,
     screenshots: [
-      'hi-low.jpg'
+      'ready/hi-low.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2014/08/28/phaser-tutorial-understanding-phaser-states/'
@@ -710,13 +751,14 @@ var games = [
   },
   {
     id: 45,
-    name: 'horror',
+    name: 'ready/horror',
+    slug: 'ready-horror',
     title: 'Horror',
     description: '',
     phaserVersion: '2.1.2',
     isPlayable: true,
     screenshots: [
-      'horror.jpg'
+      'ready/horror.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2014/10/21/phaser-tutorial-how-to-create-an-html5-survival-horror-game-in-6-easy-steps/',
@@ -731,13 +773,14 @@ var games = [
   },
   {
     id: 46,
-    name: 'horror-ray-casting',
+    name: 'ready/horror-ray-casting',
+    slug: 'ready-horror-ray-casting',
     title: 'Horror Ray Casting',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'horror-ray-casting.jpg'
+      'ready/horror-ray-casting.jpg'
     ],
     references: [
       'https://github.com/byronknoll/visibility-polygon-js',
@@ -750,13 +793,14 @@ var games = [
   },
   {
     id: 49,
-    name: 'iromeku',
+    name: 'ready/iromeku',
+    slug: 'ready-iromeku',
     title: 'Iromeku',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'iromeku.jpg'
+      'ready/iromeku.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/06/10/html5-prototype-of-the-iromeku-game-engine-made-with-phaser/',
@@ -769,13 +813,14 @@ var games = [
   },
   {
     id: 56,
-    name: 'maze',
+    name: 'ready/maze',
+    slug: 'ready-maze',
     title: 'Maze',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'maze.jpg'
+      'ready/maze.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/06/30/pure-javascript-perfect-tile-maze-generation-with-a-bit-of-magic-thanks-to-phaser/'
@@ -786,13 +831,14 @@ var games = [
   },
   {
     id: 59,
-    name: 'one-plus-two-equal-three',
+    name: 'ready/one-plus-two-equal-three',
+    slug: 'ready-one-plus-two-equal-three',
     title: '1 + 2 = 3',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'one-plus-two-equal-three.jpg'
+      'ready/one-plus-two-equal-three.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/02/23/123-html5-game-made-in-100-lines-of-code-brackets-included-using-phaser/'
@@ -805,13 +851,14 @@ var games = [
   },
   {
     id: 105,
-    name: '123',
+    name: 'ready/123',
+    slug: 'ready-123',
     title: '123',
     description: '1+2=3',
     phaserVersion: '2.2.2',
     isPlayable: true,
     screenshots: [
-      '123.jpg'
+      'ready/123.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/tag/123/'
@@ -824,13 +871,14 @@ var games = [
   },
   {
     id: 75,
-    name: 'radical',
+    name: 'ready/radical',
+    slug: 'ready-radical',
     title: 'Radical',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'radical.jpg'
+      'ready/radical.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/11/13/creation-of-an-html5-game-like-radical-using-phaser-and-arcade-physics-step-1/',
@@ -845,13 +893,14 @@ var games = [
   },
   {
     id: 84,
-    name: 'sokoban-responsive',
+    name: 'ready/sokoban-responsive',
+    slug: 'ready-sokoban-responsive',
     title: 'Sokoban Responsive',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'sokoban-responsive.jpg'
+      'ready/sokoban-responsive.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/02/26/the-basics-of-responsive-html5-games/',
@@ -865,13 +914,14 @@ var games = [
   },
   {
     id: 87,
-    name: 'space-is-key',
+    name: 'ready/space-is-key',
+    slug: 'ready-space-is-key',
     title: 'Space is Key',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'space-is-key.jpg'
+      'ready/space-is-key.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2014/02/01/create-an-html5-game-like-space-is-key-with-a-lot-of-room-for-customization-step-2-adding-obstacles/',
@@ -886,13 +936,14 @@ var games = [
   },
   {
     id: 89,
-    name: 'spin-wheel',
+    name: 'ready/spin-wheel',
+    slug: 'ready-spin-wheel',
     title: 'Spin Wheel',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'spin-wheel.jpg'
+      'ready/spin-wheel.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/07/31/create-a-wheel-of-fortune-for-your-html5-games-with-phaser-in-only-a-few-lines/',
@@ -904,13 +955,14 @@ var games = [
   },
   {
     id: 99,
-    name: 'the-next-arrow',
+    name: 'ready/the-next-arrow',
+    slug: 'ready-the-next-arrow',
     title: 'The Next Arrow',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'the-next-arrow.jpg'
+      'ready/the-next-arrow.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/05/18/create-an-html5-game-like-the-next-arrow-using-phaser/',
@@ -926,13 +978,14 @@ var games = [
   },
   {
     id: 103,
-    name: 'two-cars',
+    name: 'ready/two-cars',
+    slug: 'ready-two-cars',
     title: 'Two Cars',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: true,
     screenshots: [
-      'two-cars.jpg'
+      'ready/two-cars.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2015/11/03/2-cars-html5-prototype-part-ii-adding-targets-and-steering/',
@@ -945,13 +998,14 @@ var games = [
   },
   {
     id: 110,
-    name: 'square-one',
+    name: 'ready/square-one',
+    slug: 'ready-square-one',
     title: 'Square One',
     description: 'Back to Square One',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'square-one.jpg'
+      'ready/square-one.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2016/08/25/html5-back-to-square-one-prototype-made-with-phaser-adding-enemies/',
@@ -965,13 +1019,14 @@ var games = [
   },
   {
     id: 111,
-    name: 'circle-path',
+    name: 'ready/circle-path',
+    slug: 'ready-circle-path',
     title: 'Circle Path',
     description: '',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'circle-path.jpg'
+      'ready/circle-path.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2016/02/11/html5-prototype-of-ios-game-circle-path-made-with-phaser/',
@@ -985,13 +1040,14 @@ var games = [
   },
   {
     id: 113,
-    name: 'mike-dangers',
+    name: 'ready/mike-dangers',
+    slug: 'ready-mike-dangers',
     title: 'Mike Dangers',
     description: '',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'mike-dangers.jpg'
+      'ready/mike-dangers.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2017/06/12/play-ladderz-the-complete-html5-game-based-on-mike-dangers-concept/',
@@ -1005,13 +1061,14 @@ var games = [
   },
   {
     id: 114,
-    name: 'memdot',
+    name: 'ready/memdot',
+    slug: 'ready-memdot',
     title: 'Memdot',
     description: '',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'memdot.jpg'
+      'ready/memdot.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2016/09/22/create-the-html5-engine-behind-ios-hit-memdot-with-phaser-step-2-a-game-prototype/',
@@ -1025,13 +1082,14 @@ var games = [
   },
   {
     id: 115,
-    name: 'pop-the-lock',
+    name: 'ready/pop-the-lock',
+    slug: 'ready-pop-the-lock',
     title: 'Pop the Lock',
     description: '',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'pop-the-lock.jpg'
+      'ready/pop-the-lock.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2016/03/22/html5-prototype-of-pop-the-lock-ios-blockbuster-using-phaser-step-2/',
@@ -1046,13 +1104,14 @@ var games = [
   },
   {
     id: 116,
-    name: 'perfect-square',
+    name: 'ready/perfect-square',
+    slug: 'ready-perfect-square',
     title: 'Perfect Square',
     description: '',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'perfect-square.jpg'
+      'ready/perfect-square.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2016/04/06/html5-prototype-of-ios-game-perfect-square-step-3-adding-in-game-instructions-and-scaling-the-game-for-any-resolution/',
@@ -1066,13 +1125,14 @@ var games = [
   },
   {
     id: 119,
-    name: 'zhed',
+    name: 'ready/zhed',
+    slug: 'ready-zhed',
     title: 'Zhed',
     description: '',
     phaserVersion: '2.6.2',
     isPlayable: true,
     screenshots: [
-      'zhed.jpg'
+      'ready/zhed.jpg'
     ],
     references: [
       'http://www.emanueleferonato.com/2017/05/11/html5-prototype-of-ios-zhed-puzzle-game-with-10-playable-levels-made-with-phaser/',
@@ -1082,6 +1142,956 @@ var games = [
     inspirations: [],
     demos: []
   },
+  {
+    id: 200,
+    name: 'dummy/10000000',
+    slug: 'dummy-10000000',
+    title: '10000000',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 201,
+    name: 'coming-soon/2048',
+    slug: 'coming-soon-2048',
+    title: '2048',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 202,
+    name: 'coming-soon/ascii-roguelike',
+    slug: 'coming-soon-ascii-roguelike',
+    title: 'Ascii Roguelike',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 203,
+    name: 'dummy/boids-flocking',
+    slug: 'dummy-boids-flocking',
+    title: 'Boids Flocking',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 204,
+    name: 'dummy/boids-steering',
+    slug: 'dummy-boids-steering',
+    title: 'Boids Steering',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 205,
+    name: 'coming-soon/bouncing-menu',
+    slug: 'coming-soon-bouncing-menu',
+    title: 'Bouncing Menu',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 206,
+    name: 'dummy/box2d',
+    slug: 'dummy-box2d',
+    title: 'Box2d',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 207,
+    name: 'coming-soon/breakout',
+    slug: 'coming-soon-breakout',
+    title: 'Breakout',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 208,
+    name: 'coming-soon/car',
+    slug: 'coming-soon-car',
+    title: 'Car',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 209,
+    name: 'dummy/character-selection',
+    slug: 'dummy-character-selection',
+    title: 'Character Selection',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 210,
+    name: 'coming-soon/christmas-quest',
+    slug: 'coming-soon-christmas-quest',
+    title: 'Christmas Quest',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 211,
+    name: 'coming-soon/crack-alien-code',
+    slug: 'coming-soon-crack-alien-code',
+    title: 'Crack Alien Code',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 212,
+    name: 'coming-soon/cube-jump',
+    slug: 'coming-soon-cube-jump',
+    title: 'Cube Jump',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 213,
+    name: 'coming-soon/dashy-panda',
+    slug: 'coming-soon-dashy-panda',
+    title: 'Dashy Panda',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 214,
+    name: 'coming-soon/diamond-digger',
+    slug: 'coming-soon-diamond-digger',
+    title: 'Diamond Digger',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 215,
+    name: 'coming-soon/down-the-mountain',
+    slug: 'coming-soon-down-the-mountain',
+    title: 'Down The Mountain',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 216,
+    name: 'coming-soon/draggable-and-scrollable-with-inertia',
+    slug: 'coming-soon-draggable-and-scrollable-with-inertia',
+    title: 'Draggable And Scrollable With Inertia',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 217,
+    name: 'coming-soon/drop-wizard',
+    slug: 'coming-soon-drop-wizard',
+    title: 'Drop Wizard',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 218,
+    name: 'coming-soon/dungeon-raid',
+    slug: 'coming-soon-dungeon-raid',
+    title: 'Dungeon Raid',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 219,
+    name: 'coming-soon/flipping-legend',
+    slug: 'coming-soon-flipping-legend',
+    title: 'Flipping Legend',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 220,
+    name: 'coming-soon/flood-fill',
+    slug: 'coming-soon-flood-fill',
+    title: 'Flood Fill',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 221,
+    name: 'coming-soon/fruit-ninja',
+    slug: 'coming-soon-fruit-ninja',
+    title: 'Fruit Ninja',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 222,
+    name: 'coming-soon/fruit-ninja-2',
+    slug: 'coming-soon-fruit-ninja-2',
+    title: 'Fruit Ninja 2',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 223,
+    name: 'coming-soon/goat-rider',
+    slug: 'coming-soon-goat-rider',
+    title: 'Goat Rider',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 224,
+    name: 'coming-soon/guessnext',
+    slug: 'coming-soon-guessnext',
+    title: 'Guessnext',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 225,
+    name: 'coming-soon/gyro.js',
+    slug: 'coming-soon-gyro-js',
+    title: 'Gyro.js',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 226,
+    name: 'coming-soon/hexagonal-tiles',
+    slug: 'coming-soon-hexagonal-tiles',
+    title: 'Hexagonal Tiles',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 227,
+    name: 'coming-soon/level-selection',
+    slug: 'coming-soon-level-selection',
+    title: 'Level Selection',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 228,
+    name: 'coming-soon/level-selection-with-locked-and-stars',
+    slug: 'coming-soon-level-selection-with-locked-and-stars',
+    title: 'Level Selection With Locked And Stars',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 229,
+    name: 'coming-soon/lighting',
+    slug: 'coming-soon-lighting',
+    title: 'Lighting',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 230,
+    name: 'coming-soon/magick',
+    slug: 'coming-soon-magick',
+    title: 'Magick',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 231,
+    name: 'coming-soon/mass-attack',
+    slug: 'coming-soon-mass-attack',
+    title: 'Mass Attack',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 232,
+    name: 'coming-soon/mikey-hooks',
+    slug: 'coming-soon-mikey-hooks',
+    title: 'Mikey Hooks',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 233,
+    name: 'coming-soon/monster-wants-candy',
+    slug: 'coming-soon-monster-wants-candy',
+    title: 'Monster Wants Candy',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 234,
+    name: 'coming-soon/one-tap-rpg',
+    slug: 'coming-soon-one-tap-rpg',
+    title: 'One Tap Rpg',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 235,
+    name: 'coming-soon/particle-storm',
+    slug: 'coming-soon-particle-storm',
+    title: 'Particle Storm',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 236,
+    name: 'coming-soon/particle-to-sprite',
+    slug: 'coming-soon-particle-to-sprite',
+    title: 'Particle To Sprite',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 237,
+    name: 'coming-soon/paths-aliens',
+    slug: 'coming-soon-paths-aliens',
+    title: 'Paths Aliens',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 238,
+    name: 'coming-soon/paths-face',
+    slug: 'coming-soon-paths-face',
+    title: 'Paths Face',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 239,
+    name: 'coming-soon/paths-paths',
+    slug: 'coming-soon-paths-paths',
+    title: 'Paths Paths',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 240,
+    name: 'coming-soon/phshare',
+    slug: 'coming-soon-phshare',
+    title: 'Phshare',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 241,
+    name: 'coming-soon/platformer',
+    slug: 'coming-soon-platformer',
+    title: 'Platformer',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 242,
+    name: 'coming-soon/pong',
+    slug: 'coming-soon-pong',
+    title: 'Pong',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 243,
+    name: 'coming-soon/revenge',
+    slug: 'coming-soon-revenge',
+    title: 'Revenge',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 244,
+    name: 'coming-soon/rise-above',
+    slug: 'coming-soon-rise-above',
+    title: 'Rise Above',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 245,
+    name: 'coming-soon/rush-hour',
+    slug: 'coming-soon-rush-hour',
+    title: 'Rush Hour',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 246,
+    name: 'coming-soon/samegame',
+    slug: 'coming-soon-samegame',
+    title: 'Samegame',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 247,
+    name: 'coming-soon/screenshake',
+    slug: 'coming-soon-screenshake',
+    title: 'Screenshake',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 248,
+    name: 'coming-soon/sea-life-vs-mines',
+    slug: 'coming-soon-sea-life-vs-mines',
+    title: 'Sea Life Vs Mines',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 249,
+    name: 'coming-soon/sokoban-swipe',
+    slug: 'coming-soon-sokoban-swipe',
+    title: 'Sokoban Swipe',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 250,
+    name: 'coming-soon/space-hipster',
+    slug: 'coming-soon-space-hipster',
+    title: 'Space Hipster',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 251,
+    name: 'coming-soon/spellfall',
+    slug: 'coming-soon-spellfall',
+    title: 'Spellfall',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 252,
+    name: 'coming-soon/splashscreen',
+    slug: 'coming-soon-splashscreen',
+    title: 'Splashscreen',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 253,
+    name: 'coming-soon/state-transition-plugin',
+    slug: 'coming-soon-state-transition-plugin',
+    title: 'State Transition Plugin',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 254,
+    name: 'coming-soon/straight-rush',
+    slug: 'coming-soon-straight-rush',
+    title: 'Straight Rush',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 255,
+    name: 'coming-soon/string-avoider',
+    slug: 'coming-soon-string-avoider',
+    title: 'String Avoider',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 256,
+    name: 'coming-soon/string-avoider-2',
+    slug: 'coming-soon-string-avoider-2',
+    title: 'String Avoider 2',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 257,
+    name: 'coming-soon/totem-destroyer',
+    slug: 'coming-soon-totem-destroyer',
+    title: 'Totem Destroyer',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 258,
+    name: 'coming-soon/trick-shot',
+    slug: 'coming-soon-trick-shot',
+    title: 'Trick Shot',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 259,
+    name: 'coming-soon/twin-spin',
+    slug: 'coming-soon-twin-spin',
+    title: 'Twin Spin',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 260,
+    name: 'coming-soon/wall-jump',
+    slug: 'coming-soon-wall-jump',
+    title: 'Wall Jump',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 261,
+    name: 'coming-soon/webfont',
+    slug: 'coming-soon-webfont',
+    title: 'Webfont',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
+    id: 262,
+    name: 'coming-soon/yeah-bunny',
+    slug: 'coming-soon-yeah-bunny',
+    title: 'Yeah Bunny',
+    description: '',
+    phaserVersion: '2.4.4',
+    isPlayable: false,
+    comingSoon: true,
+    screenshots: [],
+    references: [],
+    tags: [],
+    inspirations: [],
+    demos: []
+  }
 ];
 
 function debugGameObject() {
