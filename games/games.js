@@ -1152,7 +1152,9 @@ var games = [
     isPlayable: false,
     comingSoon: false,
     isDummy: true,
-    screenshots: [],
+    screenshots: [
+      'dummy/10000000.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1167,7 +1169,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/2048.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1182,7 +1186,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/ascii-roguelike.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1198,7 +1204,9 @@ var games = [
     isPlayable: false,
     comingSoon: false,
     isDummy: true,
-    screenshots: [],
+    screenshots: [
+      'dummy/boids-flocking.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1214,7 +1222,9 @@ var games = [
     isPlayable: false,
     comingSoon: false,
     isDummy: true,
-    screenshots: [],
+    screenshots: [
+      'dummy/boids-steering.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1229,7 +1239,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/bouncing-menu.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1245,7 +1257,9 @@ var games = [
     isPlayable: false,
     comingSoon: false,
     isDummy: true,
-    screenshots: [],
+    screenshots: [
+      'dummy/box2d.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1260,7 +1274,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/breakout.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1275,7 +1291,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/car.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1291,7 +1309,9 @@ var games = [
     isPlayable: false,
     comingSoon: false,
     isDummy: true,
-    screenshots: [],
+    screenshots: [
+      'dummy/character-selection.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1306,7 +1326,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/christmas-quest.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1321,7 +1343,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/crack-alien-code.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1329,14 +1353,17 @@ var games = [
   },
   {
     id: 212,
-    name: 'coming-soon/cube-jump',
-    slug: 'coming-soon-cube-jump',
+    name: 'dummy/cube-jump',
+    slug: 'dummy-cube-jump',
     title: 'Cube Jump',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/cube-jump.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1351,7 +1378,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/dashy-panda.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1366,7 +1395,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/diamond-digger.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1381,7 +1412,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/down-the-mountain.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1396,7 +1429,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/draggable-and-scrollable-with-inertia.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1404,14 +1439,17 @@ var games = [
   },
   {
     id: 217,
-    name: 'coming-soon/drop-wizard',
-    slug: 'coming-soon-drop-wizard',
+    name: 'dummy/drop-wizard',
+    slug: 'dummy-drop-wizard',
     title: 'Drop Wizard',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/drop-wizard.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1419,14 +1457,17 @@ var games = [
   },
   {
     id: 218,
-    name: 'coming-soon/dungeon-raid',
-    slug: 'coming-soon-dungeon-raid',
+    name: 'dummy/dungeon-raid',
+    slug: 'dummy-dungeon-raid',
     title: 'Dungeon Raid',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/dungeon-raid.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1441,7 +1482,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/flipping-legend.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1449,14 +1492,17 @@ var games = [
   },
   {
     id: 220,
-    name: 'coming-soon/flood-fill',
-    slug: 'coming-soon-flood-fill',
+    name: 'dummy/flood-fill',
+    slug: 'dummy-flood-fill',
     title: 'Flood Fill',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/flood-fill.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1471,7 +1517,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/fruit-ninja.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1486,7 +1534,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/fruit-ninja-2.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1494,14 +1544,17 @@ var games = [
   },
   {
     id: 223,
-    name: 'coming-soon/goat-rider',
-    slug: 'coming-soon-goat-rider',
+    name: 'dummy/goat-rider',
+    slug: 'dummy-goat-rider',
     title: 'Goat Rider',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/goat-rider.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1516,7 +1569,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/guessnext.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1531,7 +1586,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/gyro.js.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1539,14 +1596,17 @@ var games = [
   },
   {
     id: 226,
-    name: 'coming-soon/hexagonal-tiles',
-    slug: 'coming-soon-hexagonal-tiles',
+    name: 'dummy/hexagonal-tiles',
+    slug: 'dummy-hexagonal-tiles',
     title: 'Hexagonal Tiles',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/hexagonal-tiles.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1554,14 +1614,17 @@ var games = [
   },
   {
     id: 227,
-    name: 'coming-soon/level-selection',
-    slug: 'coming-soon-level-selection',
+    name: 'dummy/level-selection',
+    slug: 'dummy-level-selection',
     title: 'Level Selection',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/level-selection.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1569,14 +1632,17 @@ var games = [
   },
   {
     id: 228,
-    name: 'coming-soon/level-selection-with-locked-and-stars',
-    slug: 'coming-soon-level-selection-with-locked-and-stars',
+    name: 'dummy/level-selection-with-locked-and-stars',
+    slug: 'dummy-level-selection-with-locked-and-stars',
     title: 'Level Selection With Locked And Stars',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/level-selection-with-locked-and-stars.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1584,14 +1650,17 @@ var games = [
   },
   {
     id: 229,
-    name: 'coming-soon/lighting',
-    slug: 'coming-soon-lighting',
+    name: 'dummy/lighting',
+    slug: 'dummy-lighting',
     title: 'Lighting',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/lighting.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1599,14 +1668,17 @@ var games = [
   },
   {
     id: 230,
-    name: 'coming-soon/magick',
-    slug: 'coming-soon-magick',
+    name: 'dummy/magick',
+    slug: 'dummy-magick',
     title: 'Magick',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/magick.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1614,14 +1686,17 @@ var games = [
   },
   {
     id: 231,
-    name: 'coming-soon/mass-attack',
-    slug: 'coming-soon-mass-attack',
+    name: 'dummy/mass-attack',
+    slug: 'dummy-mass-attack',
     title: 'Mass Attack',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/mass-attack.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1636,7 +1711,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/mikey-hooks.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1651,7 +1728,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/monster-wants-candy.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1666,7 +1745,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/one-tap-rpg.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1674,14 +1755,17 @@ var games = [
   },
   {
     id: 235,
-    name: 'coming-soon/particle-storm',
-    slug: 'coming-soon-particle-storm',
+    name: 'dummy/particle-storm',
+    slug: 'dummy-particle-storm',
     title: 'Particle Storm',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/particle-storm.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1689,14 +1773,17 @@ var games = [
   },
   {
     id: 236,
-    name: 'coming-soon/particle-to-sprite',
-    slug: 'coming-soon-particle-to-sprite',
+    name: 'dummy/particle-to-sprite',
+    slug: 'dummy-particle-to-sprite',
     title: 'Particle To Sprite',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/particle-to-sprite.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1704,14 +1791,17 @@ var games = [
   },
   {
     id: 237,
-    name: 'coming-soon/paths-aliens',
-    slug: 'coming-soon-paths-aliens',
+    name: 'dummy/paths-aliens',
+    slug: 'dummy-paths-aliens',
     title: 'Paths Aliens',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/paths-aliens.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1719,14 +1809,17 @@ var games = [
   },
   {
     id: 238,
-    name: 'coming-soon/paths-face',
-    slug: 'coming-soon-paths-face',
+    name: 'dummy/paths-face',
+    slug: 'dummy-paths-face',
     title: 'Paths Face',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/paths-face.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1734,29 +1827,17 @@ var games = [
   },
   {
     id: 239,
-    name: 'coming-soon/paths-paths',
-    slug: 'coming-soon-paths-paths',
+    name: 'dummy/paths-paths',
+    slug: 'dummy-paths-paths',
     title: 'Paths Paths',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
-    references: [],
-    tags: [],
-    inspirations: [],
-    demos: []
-  },
-  {
-    id: 240,
-    name: 'coming-soon/phshare',
-    slug: 'coming-soon-phshare',
-    title: 'Phshare',
-    description: '',
-    phaserVersion: '2.4.4',
-    isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/paths-paths.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1764,14 +1845,17 @@ var games = [
   },
   {
     id: 241,
-    name: 'coming-soon/platformer',
-    slug: 'coming-soon-platformer',
+    name: 'dummy/platformer',
+    slug: 'dummy-platformer',
     title: 'Platformer',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/platformer.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1786,7 +1870,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/pong.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1794,14 +1880,17 @@ var games = [
   },
   {
     id: 243,
-    name: 'coming-soon/revenge',
-    slug: 'coming-soon-revenge',
+    name: 'dummy/revenge',
+    slug: 'dummy-revenge',
     title: 'Revenge',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/revenge.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1816,7 +1905,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/rise-above.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1824,14 +1915,17 @@ var games = [
   },
   {
     id: 245,
-    name: 'coming-soon/rush-hour',
-    slug: 'coming-soon-rush-hour',
+    name: 'dummy/rush-hour',
+    slug: 'dummy-rush-hour',
     title: 'Rush Hour',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/rush-hour.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1839,14 +1933,17 @@ var games = [
   },
   {
     id: 246,
-    name: 'coming-soon/samegame',
-    slug: 'coming-soon-samegame',
+    name: 'dummy/samegame',
+    slug: 'dummy-samegame',
     title: 'Samegame',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/samegame.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1854,14 +1951,17 @@ var games = [
   },
   {
     id: 247,
-    name: 'coming-soon/screenshake',
-    slug: 'coming-soon-screenshake',
+    name: 'dummy/screenshake',
+    slug: 'dummy-screenshake',
     title: 'Screenshake',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/screenshake.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1876,7 +1976,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/sea-life-vs-mines.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1891,7 +1993,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/sokoban-swipe.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1906,7 +2010,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/space-hipster.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1914,14 +2020,17 @@ var games = [
   },
   {
     id: 251,
-    name: 'coming-soon/spellfall',
-    slug: 'coming-soon-spellfall',
+    name: 'dummy/spellfall',
+    slug: 'dummy-spellfall',
     title: 'Spellfall',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/spellfall.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1929,14 +2038,17 @@ var games = [
   },
   {
     id: 252,
-    name: 'coming-soon/splashscreen',
-    slug: 'coming-soon-splashscreen',
+    name: 'dummy/splashscreen',
+    slug: 'dummy-splashscreen',
     title: 'Splashscreen',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/splashscreen.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1944,14 +2056,17 @@ var games = [
   },
   {
     id: 253,
-    name: 'coming-soon/state-transition-plugin',
-    slug: 'coming-soon-state-transition-plugin',
+    name: 'dummy/state-transition-plugin',
+    slug: 'dummy-state-transition-plugin',
     title: 'State Transition Plugin',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/state-transition-plugin.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1959,14 +2074,17 @@ var games = [
   },
   {
     id: 254,
-    name: 'coming-soon/straight-rush',
-    slug: 'coming-soon-straight-rush',
+    name: 'dummy/straight-rush',
+    slug: 'dummy-straight-rush',
     title: 'Straight Rush',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/straight-rush.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1974,14 +2092,17 @@ var games = [
   },
   {
     id: 255,
-    name: 'coming-soon/string-avoider',
-    slug: 'coming-soon-string-avoider',
+    name: 'dummy/string-avoider',
+    slug: 'dummy-string-avoider',
     title: 'String Avoider',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/string-avoider.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -1989,14 +2110,17 @@ var games = [
   },
   {
     id: 256,
-    name: 'coming-soon/string-avoider-2',
-    slug: 'coming-soon-string-avoider-2',
+    name: 'dummy/string-avoider-2',
+    slug: 'dummy-string-avoider-2',
     title: 'String Avoider 2',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/string-avoider-2.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -2011,7 +2135,9 @@ var games = [
     phaserVersion: '2.4.4',
     isPlayable: false,
     comingSoon: true,
-    screenshots: [],
+    screenshots: [
+      'coming-soon/totem-destroyer.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -2019,14 +2145,17 @@ var games = [
   },
   {
     id: 258,
-    name: 'coming-soon/trick-shot',
-    slug: 'coming-soon-trick-shot',
+    name: 'dummy/trick-shot',
+    slug: 'dummy-trick-shot',
     title: 'Trick Shot',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/trick-shot.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -2034,14 +2163,17 @@ var games = [
   },
   {
     id: 259,
-    name: 'coming-soon/twin-spin',
-    slug: 'coming-soon-twin-spin',
+    name: 'dummy/twin-spin',
+    slug: 'dummy-twin-spin',
     title: 'Twin Spin',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/twin-spin.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -2049,14 +2181,17 @@ var games = [
   },
   {
     id: 260,
-    name: 'coming-soon/wall-jump',
-    slug: 'coming-soon-wall-jump',
+    name: 'dummy/wall-jump',
+    slug: 'dummy-wall-jump',
     title: 'Wall Jump',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/wall-jump.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -2064,14 +2199,17 @@ var games = [
   },
   {
     id: 261,
-    name: 'coming-soon/webfont',
-    slug: 'coming-soon-webfont',
+    name: 'dummy/webfont',
+    slug: 'dummy-webfont',
     title: 'Webfont',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/webfont.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
@@ -2079,14 +2217,17 @@ var games = [
   },
   {
     id: 262,
-    name: 'coming-soon/yeah-bunny',
-    slug: 'coming-soon-yeah-bunny',
+    name: 'dummy/yeah-bunny',
+    slug: 'dummy-yeah-bunny',
     title: 'Yeah Bunny',
     description: '',
     phaserVersion: '2.4.4',
     isPlayable: false,
-    comingSoon: true,
-    screenshots: [],
+    comingSoon: false,
+    isDummy: true,
+    screenshots: [
+      'dummy/yeah-bunny.jpg'
+    ],
     references: [],
     tags: [],
     inspirations: [],
