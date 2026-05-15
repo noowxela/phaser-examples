@@ -109,9 +109,14 @@
       margin-bottom: 30px;
     }
 
+    .game-wrap.is-filtered-out {
+      display: none !important;
+    }
+
     .game {
       display: flex;
       flex-direction: column;
+      position: relative;
       width: 100%;
       height: auto;
       background: #333;
@@ -142,15 +147,27 @@
     .title {
       font-size: 18px;
       font-weight: bold;
-      margin-bottom: 5px;
+      margin-bottom: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
 
-    .version {
-      font-size: 14px;
-      color: #ccc;
+    .phaser-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      z-index: 12;
+      pointer-events: none;
+      font-size: 11px;
+      font-weight: normal;
+      line-height: 1.2;
+      color: #e0e0e0;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 4px;
+      padding: 3px 7px;
+      white-space: nowrap;
     }
 
     /* Hide elements not needed for gallery view */
@@ -161,7 +178,7 @@
     /* TOC Styles */
     #toc-container {
       position: fixed;
-      top: 20px;
+      top: 62px;
       right: 20px;
       z-index: 1000;
       background-color: rgba(0, 0, 0, 0.8);
@@ -312,10 +329,163 @@
       border-radius: 4px;
       border: none;
     }
+
+    /* Top-right page menu */
+    #page-menu {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1100;
+      font-family: monospace;
+    }
+
+    #page-menu-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      background-color: rgba(0, 0, 0, 0.85);
+      border: 1px solid #555;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: inherit;
+    }
+
+    #page-menu-btn:hover {
+      background-color: rgba(40, 40, 40, 0.95);
+      border-color: #666;
+    }
+
+    #page-menu-panel {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      min-width: 240px;
+      padding: 10px 0;
+      background-color: rgba(24, 24, 24, 0.98);
+      border: 1px solid #444;
+      border-radius: 5px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    }
+
+    #page-menu.open #page-menu-panel {
+      display: block;
+    }
+
+    .page-menu-section {
+      padding: 4px 14px 8px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #888;
+    }
+
+    .page-menu-toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 14px;
+      margin: 0;
+      color: #eee;
+      font-size: 13px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .page-menu-toggle-row:hover {
+      background-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .page-menu-toggle-label {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .page-menu-toggle-state {
+      font-size: 11px;
+      color: #888;
+      margin-right: 4px;
+      min-width: 22px;
+      text-align: right;
+    }
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .toggle-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .toggle-slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #555;
+      border-radius: 24px;
+      transition: background-color 0.2s;
+    }
+
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+
+    .toggle-switch input:checked + .toggle-slider {
+      background-color: #337ab7;
+    }
+
+    .toggle-switch input:checked + .toggle-slider:before {
+      transform: translateX(20px);
+    }
+
+    .toggle-switch input:focus + .toggle-slider {
+      box-shadow: 0 0 0 2px rgba(51, 122, 183, 0.5);
+    }
+
+    body.hide-phaser-version-tags .phaser-tag {
+      display: none !important;
+    }
   </style>
 </head>
 
 <body>
+  <div id="page-menu">
+    <button type="button" id="page-menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="page-menu-panel">
+      Menu <span aria-hidden="true">▾</span>
+    </button>
+    <div id="page-menu-panel" role="menu" aria-labelledby="page-menu-btn" aria-hidden="true">
+      <div class="page-menu-section">Game cards</div>
+      <label class="page-menu-toggle-row" role="menuitem">
+        <span class="page-menu-toggle-label" id="phaser-version-toggle-desc">Phaser version on cards</span>
+        <span class="page-menu-toggle-state" id="phaser-version-toggle-state" aria-hidden="true">On</span>
+        <span class="toggle-switch">
+          <input type="checkbox" id="phaser-version-toggle" aria-describedby="phaser-version-toggle-desc" aria-label="Toggle Phaser version on game cards">
+          <span class="toggle-slider"></span>
+        </span>
+      </label>
+    </div>
+  </div>
   <div id="toc-container">
     <div class="toc-header" onclick="toggleTOC()">
       <span>Table of Contents</span>
@@ -328,7 +498,7 @@
       <h2 class="logo">Phaser Examples, <span id="ngames">0</span> games</h2>
       <div class="filter-controls">
         <label for="version-select">Filter by Version: </label>
-        <select id="version-select" onchange="filterGames()">
+        <select id="version-select">
           <option value="all">All Versions</option>
         </select>
       </div>
@@ -338,8 +508,9 @@
   </div>
     <script id="game-template" type="text/x-handlebars-template">
         {{#each games}}
-        <div id="game-{{name}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 game-wrap {{#unless isPlayable}}notplayable{{/unless}}">
+        <div id="game-{{name}}" class="col-xs-12 col-sm-6 col-md-4 col-lg-3 game-wrap {{#unless isPlayable}}notplayable{{/unless}}" data-phaser-version="{{phaserVersion}}">
             <div class="game">
+                <span class="phaser-tag" title="Phaser version">{{phaserVersion}}</span>
                 <div class="screenshot" {{#if screenshots.[0]}} style="background-image: url('{{screenshots.[0]}}');" {{/if}}>
                      {{#if demos.[0]}}
                     <a class="link-wrap" target="_blank" href="{{demos.[0]}}"></a> 
@@ -348,7 +519,6 @@
 
                 <div class="meta">
                     <div class="title">{{title}}</div>
-                    <div class="version">Phaser version: {{phaserVersion}}</div>
                 </div>
 
                 {{#if references}}
@@ -383,6 +553,75 @@
       if (window.location.host == "http://http://127.0.0.1:5500/" || 'localhost:3000')
         return true
       return false
+    }
+
+    var PHASER_TAG_PREF_KEY = 'phaser-examples-card-phaser-version';
+
+    function getPhaserTagPreference() {
+      var v = localStorage.getItem(PHASER_TAG_PREF_KEY);
+      return v === 'hide' ? 'hide' : 'show';
+    }
+
+    function applyPhaserTagPreference() {
+      document.body.classList.toggle('hide-phaser-version-tags', getPhaserTagPreference() === 'hide');
+    }
+
+    function syncPhaserTagToggle() {
+      var toggle = document.getElementById('phaser-version-toggle');
+      var stateLabel = document.getElementById('phaser-version-toggle-state');
+      if (!toggle) return;
+      var show = getPhaserTagPreference() === 'show';
+      toggle.checked = show;
+      if (stateLabel) {
+        stateLabel.textContent = show ? 'On' : 'Off';
+      }
+    }
+
+    function setPhaserTagPreference(show) {
+      localStorage.setItem(PHASER_TAG_PREF_KEY, show ? 'show' : 'hide');
+      applyPhaserTagPreference();
+      syncPhaserTagToggle();
+    }
+
+    function setupPageMenu() {
+      var root = document.getElementById('page-menu');
+      var btn = document.getElementById('page-menu-btn');
+      var panel = document.getElementById('page-menu-panel');
+      if (!root || !btn || !panel) return;
+
+      function setOpen(open) {
+        root.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setOpen(!root.classList.contains('open'));
+      });
+
+      panel.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', function () {
+        setOpen(false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          setOpen(false);
+        }
+      });
+
+      var toggle = document.getElementById('phaser-version-toggle');
+      if (toggle) {
+        toggle.addEventListener('change', function () {
+          setPhaserTagPreference(toggle.checked);
+        });
+      }
+
+      syncPhaserTagToggle();
     }
 
     // ================================================================ Handlebars
@@ -442,26 +681,38 @@
       gameListEle.innerHTML = html;
     }
 
+    applyPhaserTagPreference();
     init()
 
+    setupPageMenu();
+
     // ================================================================ Filter
+    function phaserMajorVersion(versionStr) {
+      if (!versionStr) return '';
+      var m = String(versionStr).trim().match(/^(\d+)/);
+      return m ? m[1] : '';
+    }
+
+    function isGameWrapVisible(gameWrap) {
+      return !gameWrap.classList.contains('is-filtered-out');
+    }
+
     function populateFilters() {
-      var games = document.querySelectorAll('.game-wrap');
       var versions = new Set();
       for (var i = 0; i < games.length; i++) {
-        var vText = games[i].querySelector('.version').innerText;
-        // Extract major version (e.g., "2.6.2" -> "2")
-        var match = vText.match(/Phaser version:\s*(\d+)/i);
-        if (match) {
-          versions.add(match[1]);
+        var major = phaserMajorVersion(games[i].phaserVersion);
+        if (major) {
+          versions.add(major);
         }
       }
-      
+
       var select = document.getElementById('version-select');
-      var sortedVersions = Array.from(versions).sort();
-      
-      for (var i = 0; i < sortedVersions.length; i++) {
-        var v = sortedVersions[i];
+      var sortedVersions = Array.from(versions).sort(function (a, b) {
+        return parseInt(a, 10) - parseInt(b, 10);
+      });
+
+      for (var j = 0; j < sortedVersions.length; j++) {
+        var v = sortedVersions[j];
         var opt = document.createElement('option');
         opt.value = v;
         opt.innerText = 'Phaser ' + v;
@@ -472,27 +723,33 @@
     function filterGames() {
       var select = document.getElementById('version-select');
       var version = select.value;
-      var games = document.querySelectorAll('.game-wrap');
+      var gameWraps = document.querySelectorAll('.game-wrap');
       var count = 0;
 
-      for (var i = 0; i < games.length; i++) {
-        var game = games[i];
-        var vText = game.querySelector('.version').innerText;
-        var match = vText.match(/Phaser version:\s*(\d+)/i);
-        var gameVer = match ? match[1] : '';
+      for (var i = 0; i < gameWraps.length; i++) {
+        var gameWrap = gameWraps[i];
+        var gameVer = phaserMajorVersion(gameWrap.getAttribute('data-phaser-version'));
 
         if (version === 'all' || gameVer === version) {
-          game.style.display = 'block';
+          gameWrap.classList.remove('is-filtered-out');
           count++;
         } else {
-          game.style.display = 'none';
+          gameWrap.classList.add('is-filtered-out');
         }
       }
 
       document.getElementById('ngames').innerText = count;
-      generateTOC(); // Regenerate TOC based on visible games
+      generateTOC();
       updateActiveTOC();
     }
+
+    function setupVersionFilter() {
+      var select = document.getElementById('version-select');
+      if (!select) return;
+      select.addEventListener('change', filterGames);
+    }
+
+    window.filterGames = filterGames;
 
     function toggleInfo(icon, event) {
       // Prevent triggering the game link if any
@@ -532,7 +789,7 @@
       for (var i = 0; i < games.length; i++) {
         var game = games[i];
         // Skip hidden games
-        if (game.style.display === 'none') continue;
+        if (!isGameWrapVisible(game)) continue;
         
         var id = game.id;
         // The title is inside .meta .title
@@ -572,7 +829,7 @@
       for (var i = 0; i < games.length; i++) {
         var game = games[i];
         // Skip hidden games
-        if (game.style.display === 'none') continue;
+        if (!isGameWrapVisible(game)) continue;
 
         // Check if the game is near the top of the viewport
         if (game.offsetTop <= scrollPos + offset) {
@@ -593,6 +850,7 @@
 
     // Generate TOC after init
     populateFilters();
+    setupVersionFilter();
     generateTOC();
     
     // Scroll Spy
