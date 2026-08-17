@@ -1143,6 +1143,25 @@ var games = [
     demos: []
   },
   {
+    id: 263,
+    name: 'ready/jtetris',
+    slug: 'ready-jtetris',
+    title: 'JTetris',
+    description: '',
+    phaserVersion: '3.60.0',
+    isPlayable: true,
+    screenshots: [
+      'ready/jtetris.jpg'
+    ],
+    references: [
+      'https://github.com/jjcapellan/phaser3-game-jtetris',
+      'https://jjcapellan.github.io/phaser3-game-jtetris/'
+    ],
+    tags: [],
+    inspirations: [],
+    demos: []
+  },
+  {
     id: 200,
     name: 'dummy/10000000',
     slug: 'dummy-10000000',

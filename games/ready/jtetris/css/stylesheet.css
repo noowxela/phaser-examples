@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    background-color: #000;
+    overflow-y: hidden;
+}
+
+#game{
+    position: absolute;
+    left:0;
+    top:0;
+    right: 0;
+    bottom: 0;
+}
