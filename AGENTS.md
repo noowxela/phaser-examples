@@ -36,7 +36,7 @@ This repository is a **static gallery of Phaser 2** mini-games and demos. There 
    - `slug` — HTML id when `name` contains slashes (e.g. `ready-box-jump`).
    - `title`, `phaserVersion`, `isPlayable`, `screenshots`, `references`, `tags`, `inspirations`, `demos`, etc.
 
-3. **Screenshots** — repo path `screenshots/<section>/<file>` (e.g. `screenshots/ready/run.jpg`). In `games/games.js` you can use bare filenames (`run.jpg`) or prefixed paths (`ready/run.jpg`); `games/index.html` adds the section prefix when missing. Locally (localhost) images load from `/screenshots/`; on GitHub Pages from `gh-pages/screenshots/` (mirror the same `ready/`, `coming-soon/`, `dummy/` layout when deploying).
+3. **Screenshots** — repo path `screenshots/<section>/<file>` (e.g. `screenshots/ready/run.jpg`). In `games/games.js` you can use bare filenames (`run.jpg`) or prefixed paths (`ready/run.jpg`); `games/index.html` adds the section prefix when missing. Images load from the same origin as the gallery (`/screenshots/` locally, `/phaser-examples/screenshots/` on GitHub Pages). Mirror the same `ready/`, `coming-soon/`, `dummy/` layout when deploying.
 4. **Play / demo links** — `init()` in `games/index.html` **prepends** two URLs to each game’s `demos` array: this repo’s GitHub Pages game base (`…/games/<name>`) and the upstream `jojoee.github.io` mirror. The card’s main link uses `demos[0]` after that mutation. Additional `demos` entries in `games.js` are shifted to later indices.
 
 Match an existing game’s `index.html` structure (script order, Phaser path, optional plugins) rather than inventing a new stack.
