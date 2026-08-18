@@ -904,11 +904,7 @@
     var repoBase = getRepoBasePath();
 
     function getScreenshotsBase() {
-      var host = window.location.hostname;
-      if (host === 'localhost' || host === '127.0.0.1') {
-        return currentHost + repoBase + '/screenshots/';
-      }
-      return 'https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages/screenshots/';
+      return currentHost + repoBase + '/screenshots/';
     }
 
     function resolveScreenshotPath(game, filename) {
