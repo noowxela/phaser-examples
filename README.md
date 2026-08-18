@@ -1,15 +1,35 @@
-# INTRODUCTION
+# Phaser Examples
 
-🎮 This repo is extend on repo ( <https://github.com/jojoee/phaser-examples> ) by jojoee.
+A gallery of **Phaser 2** browser games you can browse and play online.
 
-A collection of games made by phaser, [DEMO](https://noowxela.github.io/phaser-examples)
+**[Live demo](https://noowxela.github.io/phaser-examples)** · 120+ games · sections: `ready` / `coming-soon` / `dummy`
 
 [![Phaser Examples - Screenshot](https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages/games/demo.png "Phaser Examples - Screenshot")](https://noowxela.github.io/phaser-examples)
 
+Each game is a static HTML + JavaScript demo. The hub at `games/index.html` lists entries from `games/games.js`, with screenshots, tags, and filters by Phaser version.
+
+## Run locally
+
+Serve the **repository root** with any static file server (paths like `games/ready/<name>/` and `../../plugins/` must resolve). Opening files directly in the browser can break relative paths.
+
+```bash
+npx --yes serve .
+# open http://localhost:3000/games/
+```
+
+`npm install` is optional (devDependencies only). `npm run deploy` publishes to GitHub Pages via `gh-pages`.
+
+## Add a game
+
+1. Create `games/ready/<name>/`, `games/coming-soon/<name>/`, or `games/dummy/<name>/` (match an existing game’s `index.html` structure).
+2. Add an entry to `games/games.js` (`name`, `title`, `phaserVersion`, `screenshots`, etc.).
+3. Put a thumbnail in `screenshots/<section>/<file>` (e.g. `screenshots/ready/run.jpg`).
+
+See `AGENTS.md` for layout details. Individual games list tutorial sources in `references` / `inspirations` inside `games.js`.
+
+Contributions welcome — feel free to add more games.
+
 ---
-
-$${ feel \space free \space \color{green}Add \space \color{lightblue}To \space \color{orange}More Games :)}$$
-
 
 ## Other games (multiplayer)
 
@@ -219,3 +239,9 @@ $${ feel \space free \space \color{green}Add \space \color{lightblue}To \space \
 - [Bastion](http://store.steampowered.com/app/107100/) - PC, Action
 - [Super Hexagon](https://play.google.com/store/apps/details?id=com.distractionware.superhexagon&hl=en)
 - [Snow World by Sparklin Labs](https://sparklinlabs.itch.io/hunt-the-yeti)
+
+## Origins
+
+This collection started from [jojoee/phaser-examples](https://github.com/jojoee/phaser-examples) and has since been expanded and reorganized — more games, gallery UI, screenshot folders, and GitHub Pages hosting at [noowxela.github.io/phaser-examples](https://noowxela.github.io/phaser-examples).
+
+Individual games credit their original tutorials and authors in `games/games.js` (`references`, `inspirations`).

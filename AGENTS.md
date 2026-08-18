@@ -50,7 +50,7 @@ Match an existing game’s `index.html` structure (script order, Phaser path, op
 ## Docs and links
 
 - `README.md` is mainly inspiration, tutorial links, and a long wish list — not step-by-step build docs.
-- Upstream inspiration is noted at the top of `README.md` (fork of jojoee’s examples).
+- Upstream lineage is noted in the **Origins** section at the bottom of `README.md`.
 
 ## Git / PRs (user preferences)
 
