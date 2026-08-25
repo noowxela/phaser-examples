@@ -1162,6 +1162,26 @@ var games = [
     demos: []
   },
   {
+    id: 264,
+    name: 'ready/blockit',
+    slug: 'ready-blockit',
+    title: 'Blockit',
+    description: 'Tap to activate the lower wall and keep the bouncing ball on screen.',
+    phaserVersion: '3.17.0',
+    isPlayable: true,
+    screenshots: [
+      'ready/blockit.jpg'
+    ],
+    references: [
+      'https://emanueleferonato.com/2018/12/20/build-a-html5-game-like-block-it-using-phaser-3-and-arcade-physics-in-less-than-100-lines-of-code/'
+    ],
+    tags: ['arcade', 'physics'],
+    inspirations: [
+      'https://emanueleferonato.com/2018/12/20/build-a-html5-game-like-block-it-using-phaser-3-and-arcade-physics-in-less-than-100-lines-of-code/'
+    ],
+    demos: []
+  },
+  {
     id: 200,
     name: 'dummy/10000000',
     slug: 'dummy-10000000',
