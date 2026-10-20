@@ -1,31 +1,41 @@
 # Phaser Examples
 
-A gallery of **Phaser 2** browser games you can browse and play online.
+A gallery of browser games you can browse and play online. Most demos are **Phaser 2**. Two ready games use **Phaser 3** — [JTetris](games/ready/jtetris/) (3.60) and [Blockit](games/ready/blockit/) (3.17) — and [Orbital Debris](games/ready/orbital-debris/) still runs on Phaser 1.1.6.
 
-**[Live demo](https://noowxela.github.io/phaser-examples)** · 120+ games · sections: `ready` / `coming-soon` / `dummy`
+**[Live demo](https://noowxela.github.io/phaser-examples)** · 122 games · 60 ready · 25 coming soon · 37 dummy
 
-[![Phaser Examples - Screenshot](https://raw.githubusercontent.com/noowxela/phaser-examples/gh-pages/games/demo.png "Phaser Examples - Screenshot")](https://noowxela.github.io/phaser-examples)
+[![Phaser Examples](games/demo.png)](https://noowxela.github.io/phaser-examples/games/index.html)
 
-Each game is a static HTML + JavaScript demo. The hub at `games/index.html` lists entries from `games/games.js`, with screenshots, tags, and filters by Phaser version.
+Each game is a static HTML + JavaScript page. The hub at `games/index.html` reads `games/games.js` and shows cards with screenshots, tags, and a Phaser version badge. Tabs filter **All**, **Ready**, **Coming soon**, and **Dummy**. Coming soon and dummy cards stay closed until **Admin mode** is on (page menu, or open the hub once with `?admin=1`; the choice is stored in `localStorage`).
+
+## Catalog
+
+| Section | Path | Games | In the gallery |
+| --- | --- | --- | --- |
+| Ready | `games/ready/<name>/` | 60 | Playable |
+| Coming soon | `games/coming-soon/<name>/` | 25 | Listed; play links need Admin mode |
+| Dummy | `games/dummy/<name>/` | 37 | Experiments under the Dummy tab; Admin mode to play |
 
 ## Run locally
 
-Serve the **repository root** with any static file server (paths like `games/ready/<name>/` and `../../plugins/` must resolve). Opening files directly in the browser can break relative paths.
+Serve the **repository root** so paths like `games/ready/<name>/` and `plugins/` resolve. Opening files directly in the browser can break relative paths.
 
 ```bash
 npx --yes serve .
 # open http://localhost:3000/games/
 ```
 
-`npm install` is optional (devDependencies only). `npm run deploy` publishes to GitHub Pages via `gh-pages`.
+`npm install` is optional (`devDependencies` only: `gh-pages`). `npm run deploy` publishes this repo to GitHub Pages.
+
+Phaser 2 games usually load Phaser from `bower_components/` (gitignored) and fall back to a CDN if `window.Phaser` is missing. Phaser 3 games ship their own script (Blockit uses cdnjs; JTetris vendors `libs/phaser.min.js`).
 
 ## Add a game
 
-1. Create `games/ready/<name>/`, `games/coming-soon/<name>/`, or `games/dummy/<name>/` (match an existing game’s `index.html` structure).
-2. Add an entry to `games/games.js` (`name`, `title`, `phaserVersion`, `screenshots`, etc.).
-3. Put a thumbnail in `screenshots/<section>/<file>` (e.g. `screenshots/ready/run.jpg`).
+1. Create `games/ready/<name>/`, `games/coming-soon/<name>/`, or `games/dummy/<name>/`. Match a nearby game’s `index.html` (script order and Phaser major), rather than inventing a new stack.
+2. Add an entry to `games/games.js`: `name` (for example `ready/blockit`), `title`, `phaserVersion`, `screenshots`, and optional `references`, `tags`, `inspirations`.
+3. Put a thumbnail at `screenshots/<section>/<file>` (for example `screenshots/ready/blockit.jpg`). Bare filenames in `games.js` get the section prefix in the hub.
 
-See `AGENTS.md` for layout details. Individual games list tutorial sources in `references` / `inspirations` inside `games.js`.
+See `AGENTS.md` for layout details. Tutorial sources live on each entry in `games.js`.
 
 Contributions welcome — feel free to add more games.
 
